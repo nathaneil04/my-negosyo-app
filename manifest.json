@@ -1,0 +1,10 @@
+{
+  "name":"MyNegosyo",
+  "short_name":"MyNegosyo",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f6f8fc",
+  "theme_color":"#0d6efd",
+  "description":"Mobile-first all-around negosyo manager for Philippine small businesses",
+  "icons":[]
+}
