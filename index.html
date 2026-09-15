@@ -10,8 +10,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png">
+ <!-- PWA -->
+<link rel="manifest" href="./manifest.json">
+
+<!-- Chrome / Android -->
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- iPhone / iPad Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="MyNegosyo">
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png">
+
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="app-shell">
@@ -19,7 +35,7 @@
       <div class="brand">
   <div class="brand-mark">
   <img
-    src="./MNLogo.png"
+    src="MNLogo2.png"
     alt="MyNegosyo Logo"
     class="mn-logo"
     onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback');"
@@ -33,7 +49,7 @@
 </div>
       <div class="store-switcher"><i class="fa-solid fa-shop"></i><span id="storeNameSidebar">My Store</span><i class="fa-solid fa-chevron-down chevron"></i></div>
       <nav class="sidebar-nav">
-        <button class="nav-item active" data-page="dashboard"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></button>
+        <button class="nav-item active" data-page="dashboard"><i class="fa-solid fa-chart-pie"></i><span>Overview</span></button>
         <button class="nav-item" data-page="inventory"><i class="fa-solid fa-boxes-stacked"></i><span>Inventory</span><span class="nav-badge" id="lowStockBadge">3</span></button>
         <button class="nav-item" data-page="sales"><i class="fa-solid fa-cart-shopping"></i><span>Sales</span></button>
         <button class="nav-item" data-page="services"><i class="fa-solid fa-scissors"></i><span>Services</span></button>
@@ -57,16 +73,55 @@
         <div class="mobile-brand"><div class="brand-mark small"><i class="fa-solid fa-store"></i></div><strong>My<span>Negosyo</span></strong></div>
         <div class="top-search"><i class="fa-solid fa-magnifying-glass"></i><input id="globalSearch" placeholder="Search products, customers..." /></div>
         <div class="top-actions">
-          <button class="icon-btn" id="quickAddBtn" title="Quick add"><i class="fa-solid fa-plus"></i></button>
-          <button class="icon-btn notification" id="notifBtn" title="Alerts"><i class="fa-regular fa-bell"></i><span></span></button>
-          <button class="avatar top-avatar">N</button>
-        </div>
+
+  <!-- Install App -->
+  <button
+    class="icon-btn install-app-btn"
+    id="installAppBtn"
+    title="Install MyNegosyo"
+    aria-label="Install MyNegosyo"
+  >
+    <i class="fa-solid fa-download"></i>
+  </button>
+
+  <button
+    class="icon-btn"
+    id="quickAddBtn"
+    title="Quick add"
+  >
+    <i class="fa-solid fa-plus"></i>
+  </button>
+
+  <button
+    class="icon-btn notification"
+    id="notifBtn"
+    title="Alerts"
+  >
+    <i class="fa-regular fa-bell"></i>
+    <span></span>
+  </button>
+
+  <button class="avatar top-avatar">N</button>
+
+</div>
       </header>
 
       <div class="content">
         <section class="page active" id="page-dashboard">
-          <div class="page-head"><div><p class="eyebrow">MONDAY, SEPTEMBER 14, 2026</p><h1>Good afternoon! 👋</h1><p class="muted">Here’s what’s happening in your negosyo today.</p></div><button class="primary-btn" id="dashboardSaleBtn"><i class="fa-solid fa-cash-register"></i> New Sale</button></div>
-          <div class="stat-grid">
+          <div class="page-head">
+  <div>
+    <p class="eyebrow" id="currentDate">LOADING DATE...</p>
+    <h1 id="greeting">Good afternoon! 👋</h1>
+    <p class="muted">Here’s what’s happening in your negosyo today.</p>
+  </div>
+
+  <button class="primary-btn" id="dashboardSaleBtn">
+    <i class="fa-solid fa-cash-register"></i> New Sale
+  </button>
+</div>
+
+<div class="stat-grid">
+
             <article class="stat-card blue"><div class="stat-icon"><i class="fa-solid fa-coins"></i></div><div><small>Today's Sales</small><strong id="todaySales">₱8,460.00</strong><span class="trend up">+12.6% vs yesterday</span></div></article>
             <article class="stat-card red"><div class="stat-icon"><i class="fa-solid fa-boxes-stacked"></i></div><div><small>Low Stock</small><strong id="dashLowStock">3 items</strong><span class="trend warn">Needs restocking</span></div></article>
             <article class="stat-card yellow"><div class="stat-icon"><i class="fa-solid fa-user-clock"></i></div><div><small>Utang Balance</small><strong id="todayUtang">₱6,720.00</strong><span class="trend neutral">8 active customers</span></div></article>
@@ -117,5 +172,1581 @@
   <div class="modal" id="quickModal"><div class="modal-head"><div><p class="eyebrow">QUICK ACTION</p><h2>What would you like to do?</h2></div><button class="icon-btn" data-close="quickModal"><i class="fa-solid fa-xmark"></i></button></div><div class="quick-modal-grid"><button data-page-link="inventory" data-close="quickModal"><i class="fa-solid fa-box"></i><span>Add product</span></button><button data-page-link="sales" data-close="quickModal"><i class="fa-solid fa-cart-shopping"></i><span>Record sale</span></button><button data-page-link="utang" data-close="quickModal"><i class="fa-solid fa-hand-holding-dollar"></i><span>Utang entry</span></button><button data-page-link="gcash" data-close="quickModal"><i class="fa-solid fa-wallet"></i><span>GCash entry</span></button></div></div>
   <div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span>Saved</span></div>
   <script src="app.js"></script>
+
+<script>
+/* =========================================================
+   MYNEGOSYO PWA INSTALL
+   Chrome / Edge / Android + Safari / iPhone / iPad / macOS
+   ========================================================= */
+(function () {
+  "use strict";
+
+  let deferredInstallPrompt = null;
+  const installButton = document.getElementById("installAppBtn");
+
+  function isIOS() {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  }
+
+  function isSafari() {
+    const ua = navigator.userAgent;
+    return /Safari/i.test(ua) &&
+      !/Chrome|CriOS|Android|Edg|OPR|FxiOS|Brave/i.test(ua);
+  }
+
+  function isStandalone() {
+    return window.matchMedia("(display-mode: standalone)").matches ||
+      window.navigator.standalone === true;
+  }
+
+  function setInstallButtonVisible(visible) {
+    if (!installButton) return;
+    installButton.style.display = visible ? "grid" : "none";
+    installButton.setAttribute("aria-hidden", visible ? "false" : "true");
+  }
+
+  function showInstallModal(title, content) {
+    const oldModal = document.getElementById("pwaInstallModal");
+    if (oldModal) oldModal.remove();
+
+    const modal = document.createElement("div");
+    modal.id = "pwaInstallModal";
+    modal.innerHTML = `
+      <div class="pwa-modal-backdrop">
+        <div class="pwa-modal" role="dialog" aria-modal="true" aria-labelledby="pwaInstallTitle">
+          <button class="pwa-modal-close" id="closePwaModal" type="button" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="pwa-modal-icon">
+            <img src="./icons/icon-180.png" alt="MyNegosyo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <i class="fa-solid fa-store" style="display:none"></i>
+          </div>
+          <h2 id="pwaInstallTitle">${title}</h2>
+          ${content}
+          <button class="primary-btn pwa-close-btn" id="pwaDoneBtn" type="button">Done</button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    const close = () => modal.remove();
+    document.getElementById("closePwaModal")?.addEventListener("click", close);
+    document.getElementById("pwaDoneBtn")?.addEventListener("click", close);
+    modal.querySelector(".pwa-modal-backdrop")?.addEventListener("click", function (event) {
+      if (event.target === this) close();
+    });
+
+    document.addEventListener("keydown", function onKey(event) {
+      if (event.key === "Escape") {
+        close();
+        document.removeEventListener("keydown", onKey);
+      }
+    });
+  }
+
+  function showIOSInstallInstructions() {
+    showInstallModal("Install MyNegosyo", `
+      <div class="install-intro">
+        Add MyNegosyo to your iPhone or iPad Home Screen for an app-like experience.
+      </div>
+      <div class="install-instructions">
+        <div class="install-step"><span>1</span><div>Tap Safari's <strong>Share</strong> button.</div></div>
+        <div class="install-step"><span>2</span><div>Select <strong>Add to Home Screen</strong>.</div></div>
+        <div class="install-step"><span>3</span><div>Tap <strong>Add</strong>.</div></div>
+        <div class="install-step"><span>4</span><div>Open <strong>MyNegosyo</strong> from your Home Screen.</div></div>
+      </div>
+    `);
+  }
+
+  function showSafariInstallInstructions() {
+    showInstallModal("Install MyNegosyo", `
+      <div class="install-intro">
+        Install MyNegosyo on your Mac for quick access from the Dock.
+      </div>
+      <div class="install-instructions">
+        <div class="install-step"><span>1</span><div>Open Safari's <strong>File</strong> menu.</div></div>
+        <div class="install-step"><span>2</span><div>Select <strong>Add to Dock</strong>.</div></div>
+        <div class="install-step"><span>3</span><div>Confirm by clicking <strong>Add</strong>.</div></div>
+      </div>
+    `);
+  }
+
+  function showInstallMessage(message) {
+    showInstallModal("MyNegosyo", `
+      <div class="install-message">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <p>${message}</p>
+      </div>
+    `);
+  }
+
+  /* Chrome / Edge / Android native installation prompt. */
+  window.addEventListener("beforeinstallprompt", function (event) {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    if (!isStandalone()) setInstallButtonVisible(true);
+  });
+
+  if (installButton) {
+    installButton.addEventListener("click", async function () {
+      if (isStandalone()) {
+        showInstallMessage("MyNegosyo is already installed on this device.");
+        return;
+      }
+
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        try {
+          const result = await deferredInstallPrompt.userChoice;
+          console.log("MyNegosyo install result:", result.outcome);
+        } catch (error) {
+          console.warn("MyNegosyo install prompt was unavailable.", error);
+        }
+        deferredInstallPrompt = null;
+        return;
+      }
+
+      if (isIOS()) {
+        showIOSInstallInstructions();
+        return;
+      }
+
+      if (isSafari()) {
+        showSafariInstallInstructions();
+        return;
+      }
+
+      showInstallMessage("Open your browser menu and choose Install MyNegosyo or Add to Home Screen.");
+    });
+  }
+
+  window.addEventListener("appinstalled", function () {
+    console.log("MyNegosyo was installed.");
+    deferredInstallPrompt = null;
+    setInstallButtonVisible(false);
+  });
+
+  /* Keep the button available for supported browsers, but hide it when already installed. */
+  setInstallButtonVisible(!isStandalone());
+})();
+</script>
+
+  <script>
+/* =========================================================
+   MYNEGOSYO — UNIVERSAL DASHBOARD DATA SYNC
+   Add this AFTER app.js and BEFORE </body>
+
+   Dashboard automatically reads the latest data from:
+   inventory/products
+   sales
+   services
+   utang
+   gcash
+   eload
+   bills
+   payroll/employees
+   vault
+
+   It also refreshes automatically whenever data changes.
+   ========================================================= */
+
+(function () {
+  "use strict";
+
+  const STORAGE = {
+    products: [
+      "mynegosyo_products",
+      "mynegosyo_inventory",
+      "products",
+      "inventory"
+    ],
+
+    sales: [
+      "mynegosyo_sales",
+      "sales",
+      "transactions"
+    ],
+
+    services: [
+      "mynegosyo_services",
+      "services"
+    ],
+
+    utang: [
+      "mynegosyo_utang",
+      "utang",
+      "debts",
+      "customers"
+    ],
+
+    gcash: [
+      "mynegosyo_gcash",
+      "gcash",
+      "gcashTransactions"
+    ],
+
+    eload: [
+      "mynegosyo_eload",
+      "eload",
+      "loadTransactions"
+    ],
+
+    bills: [
+      "mynegosyo_bills",
+      "bills"
+    ],
+
+    employees: [
+      "mynegosyo_employees",
+      "employees",
+      "payroll"
+    ],
+
+    vault: [
+      "mynegosyo_vault",
+      "vault",
+      "cashVault"
+    ]
+  };
+
+  /* =========================================================
+     HELPERS
+     ========================================================= */
+
+  function readStorage(keys, fallback = []) {
+    for (const key of keys) {
+      try {
+        const raw = localStorage.getItem(key);
+
+        if (!raw) continue;
+
+        const data = JSON.parse(raw);
+
+        if (Array.isArray(data)) {
+          return data;
+        }
+
+        if (data && Array.isArray(data.items)) {
+          return data.items;
+        }
+
+        if (data && Array.isArray(data.data)) {
+          return data.data;
+        }
+
+        if (data && Array.isArray(data.transactions)) {
+          return data.transactions;
+        }
+
+        if (data && typeof data === "object") {
+          return [data];
+        }
+      } catch (error) {
+        console.warn("Storage read error:", key, error);
+      }
+    }
+
+    return fallback;
+  }
+
+  function number(value) {
+    const parsed = Number(
+      String(value ?? 0)
+        .replace(/₱/g, "")
+        .replace(/,/g, "")
+        .trim()
+    );
+
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+
+  function money(value) {
+    return number(value).toLocaleString("en-PH", {
+      style: "currency",
+      currency: "PHP",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+  }
+
+  function getDate(item) {
+    const value =
+      item?.date ||
+      item?.createdAt ||
+      item?.created_at ||
+      item?.timestamp ||
+      item?.saleDate ||
+      item?.transactionDate ||
+      item?.updatedAt;
+
+    if (!value) return null;
+
+    const date = new Date(value);
+
+    return Number.isNaN(date.getTime())
+      ? null
+      : date;
+  }
+
+  function isToday(item) {
+    const date = getDate(item);
+
+    if (!date) return false;
+
+    const now = new Date();
+
+    return (
+      date.getFullYear() === now.getFullYear() &&
+      date.getMonth() === now.getMonth() &&
+      date.getDate() === now.getDate()
+    );
+  }
+
+  function isWithinDays(item, days) {
+    const date = getDate(item);
+
+    if (!date) return false;
+
+    const now = new Date();
+    const start = new Date();
+
+    start.setHours(0, 0, 0, 0);
+    start.setDate(start.getDate() - days);
+
+    return date >= start && date <= now;
+  }
+
+  function firstValue(item, fields, fallback = "") {
+    for (const field of fields) {
+      if (
+        item &&
+        item[field] !== undefined &&
+        item[field] !== null &&
+        item[field] !== ""
+      ) {
+        return item[field];
+      }
+    }
+
+    return fallback;
+  }
+
+  function setText(id, value) {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.textContent = value;
+    }
+  }
+
+  /* =========================================================
+     INVENTORY
+     ========================================================= */
+
+  function getProducts() {
+    return readStorage(STORAGE.products);
+  }
+
+  function getProductStock(product) {
+    return number(
+      firstValue(
+        product,
+        ["stock", "quantity", "qty", "onHand", "inventory"],
+        0
+      )
+    );
+  }
+
+  function getProductReorder(product) {
+    return number(
+      firstValue(
+        product,
+        [
+          "reorderLevel",
+          "reorder",
+          "minimumStock",
+          "minStock",
+          "lowStock"
+        ],
+        5
+      )
+    );
+  }
+
+  function getProductPrice(product) {
+    return number(
+      firstValue(
+        product,
+        [
+          "sellPrice",
+          "price",
+          "sellingPrice",
+          "salePrice"
+        ],
+        0
+      )
+    );
+  }
+
+  function getProductCost(product) {
+    return number(
+      firstValue(
+        product,
+        ["cost", "costPrice", "buyPrice", "purchasePrice"],
+        0
+      )
+    );
+  }
+
+  function isExpiringSoon(product) {
+    const expiry = firstValue(
+      product,
+      [
+        "expiry",
+        "expiryDate",
+        "expirationDate",
+        "expiresAt"
+      ],
+      ""
+    );
+
+    if (!expiry) return false;
+
+    const date = new Date(expiry);
+
+    if (Number.isNaN(date.getTime())) return false;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const limit = new Date(today);
+    limit.setDate(limit.getDate() + 7);
+
+    return date >= today && date <= limit;
+  }
+
+  function getLowStockProducts(products) {
+    return products.filter(product => {
+      return (
+        getProductStock(product) <=
+        getProductReorder(product)
+      );
+    });
+  }
+
+  /* =========================================================
+     SALES
+     ========================================================= */
+
+  function getSales() {
+    return readStorage(STORAGE.sales);
+  }
+
+  function getSaleAmount(sale) {
+    return number(
+      firstValue(
+        sale,
+        [
+          "total",
+          "amount",
+          "grandTotal",
+          "totalAmount",
+          "saleTotal"
+        ],
+        0
+      )
+    );
+  }
+
+  function getPaymentMethod(sale) {
+    return String(
+      firstValue(
+        sale,
+        [
+          "paymentMethod",
+          "payment",
+          "method",
+          "type"
+        ],
+        "Cash"
+      )
+    ).toLowerCase();
+  }
+
+  function getSaleItems(sale) {
+    return (
+      sale?.items ||
+      sale?.products ||
+      sale?.cart ||
+      []
+    );
+  }
+
+  /* =========================================================
+     UTANG
+     ========================================================= */
+
+  function getUtangEntries() {
+    return readStorage(STORAGE.utang);
+  }
+
+  function getUtangBalance(entry) {
+    return number(
+      firstValue(
+        entry,
+        [
+          "balance",
+          "amount",
+          "outstanding",
+          "utang",
+          "remaining"
+        ],
+        0
+      )
+    );
+  }
+
+  /* =========================================================
+     GCASH
+     ========================================================= */
+
+  function getGcashEntries() {
+    return readStorage(STORAGE.gcash);
+  }
+
+  function getGcashAmount(entry) {
+    return number(
+      firstValue(
+        entry,
+        [
+          "amount",
+          "value",
+          "total"
+        ],
+        0
+      )
+    );
+  }
+
+  function getGcashType(entry) {
+    return String(
+      firstValue(
+        entry,
+        [
+          "type",
+          "transactionType",
+          "action"
+        ],
+        ""
+      )
+    ).toLowerCase();
+  }
+
+  /* =========================================================
+     ELOAD
+     ========================================================= */
+
+  function getEloadEntries() {
+    return readStorage(STORAGE.eload);
+  }
+
+  function getEloadAmount(entry) {
+    return number(
+      firstValue(
+        entry,
+        ["amount", "value", "price", "total"],
+        0
+      )
+    );
+  }
+
+  function getEloadType(entry) {
+    return String(
+      firstValue(
+        entry,
+        ["type", "transactionType", "action"],
+        ""
+      )
+    ).toLowerCase();
+  }
+
+  /* =========================================================
+     VAULT
+     ========================================================= */
+
+  function getVaultEntries() {
+    return readStorage(STORAGE.vault);
+  }
+
+  function getVaultAmount(entry) {
+    return number(
+      firstValue(
+        entry,
+        ["amount", "value", "total"],
+        0
+      )
+    );
+  }
+
+  function getVaultType(entry) {
+    return String(
+      firstValue(
+        entry,
+        ["type", "action", "transactionType"],
+        ""
+      )
+    ).toLowerCase();
+  }
+
+  /* =========================================================
+     ACTIVE CUSTOMERS
+     ========================================================= */
+
+  function getActiveUtangCustomers(entries) {
+    const customers = new Set();
+
+    entries.forEach(entry => {
+      const balance = getUtangBalance(entry);
+
+      const customer = firstValue(
+        entry,
+        [
+          "customer",
+          "customerName",
+          "name",
+          "client"
+        ],
+        ""
+      );
+
+      if (
+        customer &&
+        balance > 0
+      ) {
+        customers.add(String(customer).trim());
+      }
+    });
+
+    return customers.size;
+  }
+
+  /* =========================================================
+     DASHBOARD STATS
+     ========================================================= */
+
+  function updateDashboardStats() {
+    const products = getProducts();
+    const sales = getSales();
+    const utang = getUtangEntries();
+    const gcash = getGcashEntries();
+    const vault = getVaultEntries();
+
+    /* TODAY'S SALES */
+    const todaySales = sales
+      .filter(isToday)
+      .reduce(
+        (sum, sale) =>
+          sum + getSaleAmount(sale),
+        0
+      );
+
+    setText(
+      "todaySales",
+      money(todaySales)
+    );
+
+    /* LOW STOCK */
+    const lowStock = getLowStockProducts(products);
+
+    setText(
+      "dashLowStock",
+      `${lowStock.length} item${lowStock.length === 1 ? "" : "s"}`
+    );
+
+    setText(
+      "summaryLow",
+      lowStock.length
+    );
+
+    setText(
+      "lowStockBadge",
+      lowStock.length
+    );
+
+    /* TOTAL PRODUCTS */
+    setText(
+      "totalProducts",
+      products.length
+    );
+
+    /* STOCK VALUE */
+    const stockValue = products.reduce(
+      (sum, product) =>
+        sum +
+        getProductStock(product) *
+        getProductCost(product),
+      0
+    );
+
+    setText(
+      "stockValue",
+      money(stockValue)
+    );
+
+    /* EXPIRING */
+    const expiring = products.filter(
+      isExpiringSoon
+    );
+
+    setText(
+      "summaryExpiry",
+      expiring.length
+    );
+
+    /* UTANG */
+    const utangBalance = utang.reduce(
+      (sum, entry) =>
+        sum + getUtangBalance(entry),
+      0
+    );
+
+    const activeCustomers =
+      getActiveUtangCustomers(utang);
+
+    setText(
+      "todayUtang",
+      money(utangBalance)
+    );
+
+    /* Update active customer text */
+    const utangCard =
+      document.getElementById("todayUtang")
+        ?.closest(".stat-card");
+
+    if (utangCard) {
+      const trend =
+        utangCard.querySelector(".trend");
+
+      if (trend) {
+        trend.textContent =
+          `${activeCustomers} active customer${activeCustomers === 1 ? "" : "s"}`;
+      }
+    }
+
+    /* GCASH FLOAT */
+    let gcashFloat = 0;
+
+    gcash.forEach(entry => {
+      const amount = getGcashAmount(entry);
+      const type = getGcashType(entry);
+
+      if (
+        type.includes("cash in") ||
+        type.includes("cashin") ||
+        type.includes("deposit") ||
+        type.includes("receive") ||
+        type.includes("add")
+      ) {
+        gcashFloat += amount;
+      } else if (
+        type.includes("cash out") ||
+        type.includes("cashout") ||
+        type.includes("withdraw") ||
+        type.includes("send") ||
+        type.includes("deduct")
+      ) {
+        gcashFloat -= amount;
+      }
+    });
+
+    /* Include today's GCash sales */
+    sales
+      .filter(isToday)
+      .filter(sale =>
+        getPaymentMethod(sale).includes("gcash")
+      )
+      .forEach(sale => {
+        gcashFloat += getSaleAmount(sale);
+      });
+
+    setText(
+      "dashGcash",
+      money(Math.max(0, gcashFloat))
+    );
+
+    /* VAULT */
+    let vaultBalance = 0;
+
+    vault.forEach(entry => {
+      const amount = getVaultAmount(entry);
+      const type = getVaultType(entry);
+
+      if (
+        type.includes("deposit") ||
+        type.includes("add") ||
+        type.includes("in") ||
+        type.includes("cash in")
+      ) {
+        vaultBalance += amount;
+      } else if (
+        type.includes("withdraw") ||
+        type.includes("remove") ||
+        type.includes("out") ||
+        type.includes("cash out")
+      ) {
+        vaultBalance -= amount;
+      }
+    });
+
+    const vaultStrong =
+      document.querySelector(
+        "#page-vault .wallet-card strong"
+      );
+
+    if (vaultStrong) {
+      vaultStrong.textContent =
+        money(Math.max(0, vaultBalance));
+    }
+  }
+
+  /* =========================================================
+     DASHBOARD ALERTS
+     ========================================================= */
+
+  function updateAlerts() {
+    const container =
+      document.getElementById("alertList");
+
+    if (!container) return;
+
+    const products = getProducts();
+    const sales = getSales();
+    const utang = getUtangEntries();
+
+    const alerts = [];
+
+    const lowStock =
+      getLowStockProducts(products);
+
+    lowStock.slice(0, 5).forEach(product => {
+      const name =
+        firstValue(
+          product,
+          [
+            "name",
+            "productName",
+            "title"
+          ],
+          "Product"
+        );
+
+      const stock =
+        getProductStock(product);
+
+      alerts.push({
+        type: "danger",
+        icon: "fa-box",
+        title: "Low stock",
+        text: `${name} has only ${stock} left.`,
+        page: "inventory"
+      });
+    });
+
+    products
+      .filter(isExpiringSoon)
+      .slice(0, 5)
+      .forEach(product => {
+        const name =
+          firstValue(
+            product,
+            [
+              "name",
+              "productName",
+              "title"
+            ],
+            "Product"
+          );
+
+        alerts.push({
+          type: "warning",
+          icon: "fa-calendar-xmark",
+          title: "Expiring soon",
+          text: `${name} expires within 7 days.`,
+          page: "inventory"
+        });
+      });
+
+    const outstanding =
+      utang.reduce(
+        (sum, entry) =>
+          sum + getUtangBalance(entry),
+        0
+      );
+
+    if (outstanding > 0) {
+      alerts.push({
+        type: "info",
+        icon: "fa-hand-holding-dollar",
+        title: "Outstanding utang",
+        text: `${money(outstanding)} still outstanding.`,
+        page: "utang"
+      });
+    }
+
+    const todaySaleTotal =
+      sales
+        .filter(isToday)
+        .reduce(
+          (sum, sale) =>
+            sum + getSaleAmount(sale),
+          0
+        );
+
+    if (todaySaleTotal > 0) {
+      alerts.push({
+        type: "success",
+        icon: "fa-chart-line",
+        title: "Today's sales",
+        text: `${money(todaySaleTotal)} recorded today.`,
+        page: "sales"
+      });
+    }
+
+    container.innerHTML = "";
+
+    if (!alerts.length) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <i class="fa-solid fa-circle-check"></i>
+          <p>No alerts</p>
+          <span>Your negosyo is up to date.</span>
+        </div>
+      `;
+      return;
+    }
+
+    alerts.slice(0, 6).forEach(alert => {
+      const element =
+        document.createElement("div");
+
+      element.className =
+        `alert-item ${alert.type}`;
+
+      element.dataset.pageLink =
+        alert.page;
+
+      element.innerHTML = `
+        <div class="alert-icon">
+          <i class="fa-solid ${alert.icon}"></i>
+        </div>
+
+        <div class="alert-content">
+          <strong>${escapeHtml(alert.title)}</strong>
+          <span>${escapeHtml(alert.text)}</span>
+        </div>
+
+        <i class="fa-solid fa-chevron-right alert-arrow"></i>
+      `;
+
+      element.addEventListener(
+        "click",
+        () => {
+          if (
+            typeof window.showPage ===
+            "function"
+          ) {
+            window.showPage(alert.page);
+          } else {
+            document
+              .querySelector(
+                `[data-page="${alert.page}"]`
+              )
+              ?.click();
+          }
+        }
+      );
+
+      container.appendChild(element);
+    });
+  }
+
+  /* =========================================================
+     TOP PRODUCTS
+     ========================================================= */
+
+  function getProductSalesRank() {
+    const sales = getSales();
+    const totals = {};
+
+    sales.forEach(sale => {
+      const items = getSaleItems(sale);
+
+      if (!Array.isArray(items)) return;
+
+      items.forEach(item => {
+        const name =
+          firstValue(
+            item,
+            [
+              "name",
+              "productName",
+              "title"
+            ],
+            "Unknown product"
+          );
+
+        const quantity =
+          number(
+            firstValue(
+              item,
+              [
+                "quantity",
+                "qty",
+                "count"
+              ],
+              1
+            )
+          );
+
+        if (!totals[name]) {
+          totals[name] = 0;
+        }
+
+        totals[name] += quantity;
+      });
+    });
+
+    return Object.entries(totals)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5);
+  }
+
+  function updateTopProducts() {
+    const containers = [
+      document.getElementById(
+        "topProducts"
+      ),
+      document.getElementById(
+        "reportProducts"
+      )
+    ].filter(Boolean);
+
+    const rankings =
+      getProductSalesRank();
+
+    containers.forEach(container => {
+      container.innerHTML = "";
+
+      if (!rankings.length) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <i class="fa-solid fa-box-open"></i>
+            <p>No sales yet</p>
+            <span>Your best-selling products will appear here.</span>
+          </div>
+        `;
+        return;
+      }
+
+      const max =
+        rankings[0][1] || 1;
+
+      rankings.forEach(
+        ([name, quantity], index) => {
+          const row =
+            document.createElement("div");
+
+          row.className =
+            "rank-row";
+
+          const percentage =
+            Math.max(
+              5,
+              Math.round(
+                (quantity / max) * 100
+              )
+            );
+
+          row.innerHTML = `
+            <div class="rank-number">
+              ${index + 1}
+            </div>
+
+            <div class="rank-info">
+              <div class="rank-title">
+                ${escapeHtml(name)}
+              </div>
+
+              <div class="rank-bar">
+                <span style="width:${percentage}%"></span>
+              </div>
+            </div>
+
+            <strong class="rank-value">
+              ${quantity}
+            </strong>
+          `;
+
+          container.appendChild(row);
+        }
+      );
+    });
+  }
+
+  /* =========================================================
+     SALES CHART
+     ========================================================= */
+
+  function updateSalesChart() {
+    const canvas =
+      document.getElementById(
+        "salesChart"
+      );
+
+    if (!canvas) return;
+
+    const sales = getSales();
+
+    const days = [];
+
+    for (let i = 6; i >= 0; i--) {
+      const date =
+        new Date();
+
+      date.setHours(
+        0,
+        0,
+        0,
+        0
+      );
+
+      date.setDate(
+        date.getDate() - i
+      );
+
+      days.push(date);
+    }
+
+    const amounts =
+      days.map(day => {
+        return sales
+          .filter(sale => {
+            const date =
+              getDate(sale);
+
+            if (!date) return false;
+
+            return (
+              date.getFullYear() ===
+                day.getFullYear() &&
+              date.getMonth() ===
+                day.getMonth() &&
+              date.getDate() ===
+                day.getDate()
+            );
+          })
+          .reduce(
+            (sum, sale) =>
+              sum + getSaleAmount(sale),
+            0
+          );
+      });
+
+    const ctx =
+      canvas.getContext("2d");
+
+    const width =
+      canvas.parentElement?.clientWidth ||
+      600;
+
+    const height = 180;
+
+    canvas.width =
+      width *
+      window.devicePixelRatio;
+
+    canvas.height =
+      height *
+      window.devicePixelRatio;
+
+    canvas.style.width =
+      width + "px";
+
+    canvas.style.height =
+      height + "px";
+
+    ctx.scale(
+      window.devicePixelRatio,
+      window.devicePixelRatio
+    );
+
+    ctx.clearRect(
+      0,
+      0,
+      width,
+      height
+    );
+
+    const padding = 24;
+
+    const chartWidth =
+      width -
+      padding * 2;
+
+    const chartHeight =
+      height -
+      padding * 2;
+
+    const maxAmount =
+      Math.max(
+        100,
+        ...amounts
+      );
+
+    /* Grid */
+    ctx.strokeStyle =
+      "#e5e7eb";
+
+    ctx.lineWidth = 1;
+
+    for (
+      let i = 0;
+      i <= 4;
+      i++
+    ) {
+      const y =
+        padding +
+        (chartHeight / 4) *
+          i;
+
+      ctx.beginPath();
+      ctx.moveTo(
+        padding,
+        y
+      );
+
+      ctx.lineTo(
+        width - padding,
+        y
+      );
+
+      ctx.stroke();
+    }
+
+    /* Chart line */
+    const points =
+      amounts.map(
+        (amount, index) => {
+          const x =
+            padding +
+            (chartWidth /
+              Math.max(
+                1,
+                amounts.length - 1
+              )) *
+              index;
+
+          const y =
+            padding +
+            chartHeight -
+            (amount / maxAmount) *
+              chartHeight;
+
+          return {
+            x,
+            y
+          };
+        }
+      );
+
+    if (points.length) {
+      ctx.beginPath();
+
+      points.forEach(
+        (point, index) => {
+          if (index === 0) {
+            ctx.moveTo(
+              point.x,
+              point.y
+            );
+          } else {
+            ctx.lineTo(
+              point.x,
+              point.y
+            );
+          }
+        }
+      );
+
+      ctx.strokeStyle =
+        "#1976ff";
+
+      ctx.lineWidth = 3;
+
+      ctx.lineCap =
+        "round";
+
+      ctx.lineJoin =
+        "round";
+
+      ctx.stroke();
+
+      /* Points */
+      points.forEach(
+        point => {
+          ctx.beginPath();
+
+          ctx.arc(
+            point.x,
+            point.y,
+            4,
+            0,
+            Math.PI * 2
+          );
+
+          ctx.fillStyle =
+            "#1976ff";
+
+          ctx.fill();
+        }
+      );
+    }
+
+    /* Labels */
+    ctx.fillStyle =
+      "#6b7280";
+
+    ctx.font =
+      "10px Inter, Arial, sans-serif";
+
+    ctx.textAlign =
+      "center";
+
+    days.forEach(
+      (day, index) => {
+        const x =
+          padding +
+          (chartWidth /
+            Math.max(
+              1,
+              days.length - 1
+            )) *
+            index;
+
+        const label =
+          day.toLocaleDateString(
+            "en-US",
+            {
+              weekday: "short"
+            }
+          );
+
+        ctx.fillText(
+          label,
+          x,
+          height - 5
+        );
+      }
+    );
+  }
+
+  /* =========================================================
+     ESCAPE HTML
+     ========================================================= */
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(
+        /</g,
+        "&lt;"
+      )
+      .replace(
+        />/g,
+        "&gt;"
+      )
+      .replace(
+        /"/g,
+        "&quot;"
+      )
+      .replace(
+        /'/g,
+        "&#039;"
+      );
+  }
+
+  /* =========================================================
+     MASTER SYNC
+     ========================================================= */
+
+  function syncDashboard() {
+    try {
+      updateDashboardStats();
+      updateAlerts();
+      updateTopProducts();
+      updateSalesChart();
+    } catch (error) {
+      console.error(
+        "MyNegosyo dashboard sync error:",
+        error
+      );
+    }
+  }
+
+  /* =========================================================
+     REFRESH WHEN LOCALSTORAGE CHANGES
+     ========================================================= */
+
+  window.addEventListener(
+    "storage",
+    function () {
+      syncDashboard();
+    }
+  );
+
+  /* =========================================================
+     REFRESH WHEN DATA IS SAVED THROUGH APP
+     ========================================================= */
+
+  const originalSetItem =
+    localStorage.setItem.bind(
+      localStorage
+    );
+
+  localStorage.setItem =
+    function (
+      key,
+      value
+    ) {
+      originalSetItem(
+        key,
+        value
+      );
+
+      setTimeout(
+        syncDashboard,
+        50
+      );
+    };
+
+  const originalRemoveItem =
+    localStorage.removeItem.bind(
+      localStorage
+    );
+
+  localStorage.removeItem =
+    function (key) {
+      originalRemoveItem(
+        key
+      );
+
+      setTimeout(
+        syncDashboard,
+        50
+      );
+    };
+
+  /* =========================================================
+     REFRESH ON PAGE / WINDOW EVENTS
+     ========================================================= */
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    syncDashboard
+  );
+
+  window.addEventListener(
+    "load",
+    syncDashboard
+  );
+
+  window.addEventListener(
+    "resize",
+    function () {
+      clearTimeout(
+        window.__myNegosyoChartResize
+      );
+
+      window.__myNegosyoChartResize =
+        setTimeout(
+          updateSalesChart,
+          150
+        );
+    }
+  );
+
+  /* =========================================================
+     AUTOMATIC BACKGROUND SYNC
+     ========================================================= */
+
+  setInterval(
+    syncDashboard,
+    5000
+  );
+
+  /* =========================================================
+     PUBLIC FUNCTION
+     Other parts of the app can call:
+     
+     MyNegosyoDashboardSync()
+     ========================================================= */
+
+  window.MyNegosyoDashboardSync =
+    syncDashboard;
+
+  /* Initial sync */
+  syncDashboard();
+
+})();
+</script>
+
+  <script>
+
+function updateDashboardDateTime() {
+  const now = new Date();
+
+  const dateText = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Manila",
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric"
+  }).format(now);
+
+  const currentDate = document.getElementById("currentDate");
+  if (currentDate) {
+    currentDate.textContent = dateText.toUpperCase();
+  }
+
+  const hour = Number(
+    new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Manila",
+      hour: "numeric",
+      hour12: false
+    }).format(now)
+  );
+
+  let greeting = "Good evening! 👋";
+
+  if (hour >= 5 && hour < 12) {
+    greeting = "Good morning! 👋";
+  } else if (hour >= 12 && hour < 18) {
+    greeting = "Good afternoon! 👋";
+  }
+
+  const greetingElement = document.getElementById("greeting");
+
+  if (greetingElement) {
+    greetingElement.textContent = greeting;
+  }
+}
+
+updateDashboardDateTime();
+setInterval(updateDashboardDateTime, 1000);
+</script>
+
+
 </body>
 </html>
