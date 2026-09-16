@@ -50,20 +50,274 @@
     <small>Negosyo manager</small>
   </div>
 </div>
-      <div class="store-switcher"><i class="fa-solid fa-shop"></i><span id="storeNameSidebar">My Store</span><i class="fa-solid fa-chevron-down chevron"></i></div>
-      <nav class="sidebar-nav">
-        <button class="nav-item active" data-page="dashboard"><i class="fa-solid fa-chart-pie"></i><span>Overview</span></button>
-        <button class="nav-item" data-page="inventory"><i class="fa-solid fa-boxes-stacked"></i><span>Inventory</span><span class="nav-badge" id="lowStockBadge">3</span></button>
-        <button class="nav-item" data-page="sales"><i class="fa-solid fa-cart-shopping"></i><span>Sales</span></button>
-        <button class="nav-item" data-page="services"><i class="fa-solid fa-scissors"></i><span>Services</span></button>
-        <button class="nav-item" data-page="utang"><i class="fa-solid fa-hand-holding-dollar"></i><span>Utang</span></button>
-        <button class="nav-item" data-page="gcash"><i class="fa-solid fa-wallet"></i><span>GCash</span></button>
-        <button class="nav-item" data-page="eload"><i class="fa-solid fa-mobile-screen-button"></i><span>E-Load</span></button>
-        <button class="nav-item" data-page="bills"><i class="fa-solid fa-receipt"></i><span>Bills</span></button>
-        <button class="nav-item" data-page="payroll"><i class="fa-solid fa-users"></i><span>Employee Salary</span></button>
-        <button class="nav-item" data-page="vault"><i class="fa-solid fa-vault"></i><span>Cash on Vault</span></button>
-        <button class="nav-item" data-page="reports"><i class="fa-solid fa-chart-line"></i><span>Reports</span></button>
-      </nav>
+     <div class="store-switcher-wrap">
+  <button
+    type="button"
+    class="store-switcher"
+    id="storeSwitcher"
+    aria-expanded="false"
+    aria-controls="sidebarStoreMenu"
+  >
+    <span class="store-switcher-left">
+      <i class="fa-solid fa-shop"></i>
+      <span id="storeNameSidebar">My Store</span>
+    </span>
+
+    <i class="fa-solid fa-chevron-down chevron" aria-hidden="true"></i>
+  </button>
+
+  <!-- Optional store menu -->
+  <div class="sidebar-store-menu" id="sidebarStoreMenu" hidden>
+    <button type="button" id="switchStoreBtn">
+      <i class="fa-solid fa-store"></i>
+      <span>Switch Store</span>
+    </button>
+
+    <button type="button" id="addStoreBtn">
+      <i class="fa-solid fa-plus"></i>
+      <span>Add Store</span>
+    </button>
+  </div>
+</div>
+
+<nav class="sidebar-nav" aria-label="Main navigation">
+
+  <!-- =========================
+       SALES
+       ========================= -->
+  <div class="nav-group">
+
+    <button
+      type="button"
+      class="nav-group-title"
+      aria-expanded="true"
+      aria-controls="salesMenu"
+    >
+      <span class="nav-group-title-left">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>Sales</span>
+      </span>
+
+      <i class="fa-solid fa-chevron-down nav-group-chevron"></i>
+    </button>
+
+    <div class="nav-submenu" id="salesMenu">
+
+      <button
+        type="button"
+        class="nav-item active"
+        data-page="dashboard"
+      >
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Overview</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        data-page="inventory"
+      >
+        <i class="fa-solid fa-boxes-stacked"></i>
+        <span>Inventory</span>
+        <span class="nav-badge" id="lowStockBadge">3</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        data-page="sales"
+      >
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>Sales</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        data-page="services"
+      >
+        <i class="fa-solid fa-scissors"></i>
+        <span>Services</span>
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- =========================
+       FINANCE
+       ========================= -->
+  <div class="nav-group">
+
+    <button
+      type="button"
+      class="nav-group-title"
+      aria-expanded="true"
+      aria-controls="financeMenu"
+    >
+      <span class="nav-group-title-left">
+        <i class="fa-solid fa-wallet"></i>
+        <span>Finance</span>
+      </span>
+
+      <i class="fa-solid fa-chevron-down nav-group-chevron"></i>
+    </button>
+
+    <div class="nav-submenu" id="financeMenu">
+
+      <button
+        type="button"
+        class="nav-item"
+        data-page="utang"
+      >
+        <i class="fa-solid fa-hand-holding-dollar"></i>
+        <span>Utang</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        data-page="gcash"
+      >
+        <i class="fa-solid fa-wallet"></i>
+        <span>GCash</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        data-page="eload"
+      >
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <span>E-Load</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        data-page="bills"
+      >
+        <i class="fa-solid fa-receipt"></i>
+        <span>Bills</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        data-page="payroll"
+      >
+        <i class="fa-solid fa-users"></i>
+        <span>Employee Salary</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        data-page="vault"
+      >
+        <i class="fa-solid fa-vault"></i>
+        <span>Cash on Vault</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        data-page="reports"
+      >
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Reports</span>
+      </button>
+
+      <!-- TOOLS -->
+<div class="nav-group">
+
+    <button
+        type="button"
+        class="nav-group-title"
+        data-nav-group="tools"
+        aria-expanded="true"
+        aria-controls="toolsMenu"
+    >
+        <span class="nav-group-title-left">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <span>Tools</span>
+        </span>
+
+        <i class="fa-solid fa-chevron-down nav-group-chevron"></i>
+    </button>
+
+    <div class="nav-submenu is-open" id="toolsMenu">
+
+        <button
+            type="button"
+            class="nav-item"
+            data-page="calculator"
+        >
+            <i class="fa-solid fa-calculator"></i>
+            <span>Calculator</span>
+        </button>
+
+    </div>
+
+</div>
+
+      <!-- =========================
+     STORE
+     ========================= -->
+<div class="nav-group">
+
+  <button
+    type="button"
+    class="nav-group-title"
+    aria-expanded="true"
+    aria-controls="storeMenu"
+  >
+    <span class="nav-group-title-left">
+      <i class="fa-solid fa-store"></i>
+      <span>Store</span>
+    </span>
+
+    <i class="fa-solid fa-chevron-down nav-group-chevron"></i>
+  </button>
+
+  <div class="nav-submenu" id="storeMenu">
+
+    <button
+      type="button"
+      class="nav-item"
+      data-page="suppliers"
+    >
+      <i class="fa-solid fa-truck-field"></i>
+      <span>Suppliers</span>
+    </button>
+
+    <button
+      type="button"
+      class="nav-item"
+      data-page="notes"
+    >
+      <i class="fa-solid fa-note-sticky"></i>
+      <span>Notes</span>
+    </button>
+
+    <button
+      type="button"
+      class="nav-item"
+      data-page="marketplace"
+    >
+      <i class="fa-solid fa-store"></i>
+      <span>Marketplace</span>
+    </button>
+
+  </div>
+</div>  
+
+    </div>
+  </div>
+
+</nav>
+
+</nav>
       <div class="sidebar-footer">
         <button class="nav-item" data-page="settings"><i class="fa-solid fa-gear"></i><span>Settings</span></button>
         <div class="profile-mini"><div class="avatar">N</div><div><strong>Negosyo Owner</strong><small>Owner account</small></div><i class="fa-solid fa-ellipsis"></i></div>
@@ -172,7 +426,12 @@
 
         <section class="page" id="page-inventory">
           <div class="page-head"><div><p class="eyebrow">STORE MANAGEMENT</p><h1>Inventory</h1><p class="muted">Track products, batches, stock levels, and expiry dates.</p></div><button class="primary-btn" id="addProductBtn"><i class="fa-solid fa-plus"></i> Add Product</button></div>
-          <div class="inventory-toolbar"><div class="search-field"><i class="fa-solid fa-magnifying-glass"></i><input id="inventorySearch" placeholder="Search inventory..." /></div><select id="inventoryFilter"><option value="all">All products</option><option value="low">Low stock</option><option value="out">Out of stock</option><option value="expiry">Expiring soon</option></select><button class="outline-btn" id="scanBtn"><i class="fa-solid fa-barcode"></i> Scan</button></div>
+          <div class="inventory-toolbar"><div class="search-field"><i class="fa-solid fa-magnifying-glass"></i><input id="inventorySearch" placeholder="Search inventory..." /></div><select id="inventoryFilter"><option value="all">All products</option><option value="low">Low stock</option><option value="out">Out of stock</option><option value="expiry">Expiring soon</option></select><button class="outline-btn scan-btn" id="scanBtn" type="button">
+  <span class="scan-icon">
+    <i class="fa-solid fa-barcode"></i>
+  </span>
+  <span class="scan-text">Scan Barcode</span>
+</button></div>
           <div class="inventory-summary"><div><span>Total Products</span><strong id="totalProducts">12</strong></div><div><span>Stock Value</span><strong id="stockValue">₱62,410</strong></div><div><span>Low Stock</span><strong class="red-text" id="summaryLow">3</strong></div><div><span>Expiring Soon</span><strong class="yellow-text" id="summaryExpiry">2</strong></div></div>
           <div class="panel table-panel"><div class="table-scroll"><table><thead><tr><th>Product</th><th>Category</th><th>Stock</th><th>Sell Price</th><th>Cost</th><th>Expiry</th><th>Status</th><th></th></tr></thead><tbody id="inventoryTable"></tbody></table></div><div class="mobile-products" id="mobileProducts"></div></div>
         </section>
@@ -187,6 +446,505 @@
         <section class="page" id="page-payroll"><div class="page-head"><div><p class="eyebrow">STAFF</p><h1>Employee Salary</h1><p class="muted">Track staff rates, payouts, and salary history.</p></div><button class="primary-btn" id="addEmployeeBtn"><i class="fa-solid fa-plus"></i> Add Employee</button></div><div class="cards-grid" id="employeesGrid"></div></section>
         <section class="page" id="page-vault"><div class="page-head"><div><p class="eyebrow">CASH MANAGEMENT</p><h1>Cash on Vault</h1><p class="muted">Separate your physical cash from GCash and sales.</p></div><button class="primary-btn" id="vaultEntryBtn"><i class="fa-solid fa-plus"></i> Cash Movement</button></div><div class="wallet-card vault"><div><small>Vault Balance</small><strong>₱18,600.00</strong><span><i class="fa-solid fa-shield"></i> Secure cash tracking</span></div><i class="fa-solid fa-vault wallet-bg"></i></div><div class="panel table-panel"><div class="table-scroll"><table><thead><tr><th>Date</th><th>Type</th><th>Amount</th><th>Notes</th></tr></thead><tbody id="vaultTable"></tbody></table></div></div></section>
         <section class="page" id="page-reports"><div class="page-head"><div><p class="eyebrow">BUSINESS INSIGHTS</p><h1>Reports</h1><p class="muted">Understand sales, stock movement, and cash activity.</p></div><button class="outline-btn" onclick="window.print()"><i class="fa-solid fa-print"></i> Print</button></div><div class="report-cards"><div class="report-card"><i class="fa-solid fa-chart-column"></i><strong>₱58,420</strong><span>Sales this month</span></div><div class="report-card"><i class="fa-solid fa-boxes-stacked"></i><strong>128</strong><span>Units sold</span></div><div class="report-card"><i class="fa-solid fa-user-clock"></i><strong>₱6,720</strong><span>Utang outstanding</span></div><div class="report-card"><i class="fa-solid fa-peso-sign"></i><strong>₱19,250</strong><span>Gross profit</span></div></div><div class="panel"><div class="panel-head"><div><h2>Fast-moving products</h2><p>Last 30 days</p></div></div><div id="reportProducts" class="product-rank"></div></div></section>
+        <section class="page" id="page-calculator">
+
+  <div class="page-header calculator-page-header">
+    <div>
+      <h1>Advanced Calculator</h1>
+      <p>Business, financial, percentage, profit, markup, discount, tax, and margin calculations.</p>
+    </div>
+
+    <div class="calculator-header-icon">
+      <i class="fa-solid fa-calculator"></i>
+    </div>
+  </div>
+
+  <div class="advanced-calculator">
+
+    <!-- Main Calculator -->
+    <div class="calculator-panel">
+
+      <div class="calculator-display">
+        <div id="calcExpression" class="calc-expression"></div>
+        <div id="calcDisplay" class="calc-display-value">0</div>
+      </div>
+
+      <div class="calculator-memory">
+        <button data-calc="MC">MC</button>
+        <button data-calc="MR">MR</button>
+        <button data-calc="M+">M+</button>
+        <button data-calc="M-">M-</button>
+        <button data-calc="C">AC</button>
+      </div>
+
+      <div class="calculator-keypad">
+
+        <button data-calc="(">(</button>
+        <button data-calc=")">)</button>
+        <button data-calc="%">%</button>
+        <button class="calc-danger" data-calc="backspace">
+          <i class="fa-solid fa-delete-left"></i>
+        </button>
+
+        <button data-calc="7">7</button>
+        <button data-calc="8">8</button>
+        <button data-calc="9">9</button>
+        <button class="calc-operator" data-calc="/">÷</button>
+
+        <button data-calc="4">4</button>
+        <button data-calc="5">5</button>
+        <button data-calc="6">6</button>
+        <button class="calc-operator" data-calc="*">×</button>
+
+        <button data-calc="1">1</button>
+        <button data-calc="2">2</button>
+        <button data-calc="3">3</button>
+        <button class="calc-operator" data-calc="-">−</button>
+
+        <button class="calc-zero" data-calc="0">0</button>
+        <button data-calc=".">.</button>
+        <button class="calc-operator" data-calc="+">+</button>
+
+        <button class="calc-equals" data-calc="=">=</button>
+
+      </div>
+
+    </div>
+
+
+    <!-- Advanced Business Tools -->
+    <div class="calculator-business">
+
+      <div class="calculator-business-header">
+        <div class="calculator-business-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        <div>
+          <h2>Business Calculator</h2>
+          <p>Quick calculations for your negosyo.</p>
+        </div>
+      </div>
+
+
+      <!-- Profit -->
+      <div class="business-tool-card">
+
+        <h3>
+          <i class="fa-solid fa-money-bill-trend-up"></i>
+          Profit Calculator
+        </h3>
+
+        <div class="business-grid">
+
+          <label>
+            Cost Price
+            <input type="number" id="bcCost" step="0.01" placeholder="0.00">
+          </label>
+
+          <label>
+            Selling Price
+            <input type="number" id="bcSelling" step="0.01" placeholder="0.00">
+          </label>
+
+          <label>
+            Quantity
+            <input type="number" id="bcQty" step="1" min="1" value="1">
+          </label>
+
+        </div>
+
+        <button class="primary-btn business-btn" id="bcProfitBtn">
+          <i class="fa-solid fa-calculator"></i>
+          Calculate Profit
+        </button>
+
+        <div class="business-result" id="bcProfitResult">
+          <span>Total Profit</span>
+          <strong>₱0.00</strong>
+        </div>
+
+      </div>
+
+
+      <!-- Markup -->
+      <div class="business-tool-card">
+
+        <h3>
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          Markup Calculator
+        </h3>
+
+        <div class="business-grid">
+
+          <label>
+            Cost Price
+            <input type="number" id="bcMarkupCost" step="0.01" placeholder="0.00">
+          </label>
+
+          <label>
+            Markup %
+            <input type="number" id="bcMarkupPercent" step="0.01" placeholder="0">
+          </label>
+
+        </div>
+
+        <button class="primary-btn business-btn" id="bcMarkupBtn">
+          Calculate Selling Price
+        </button>
+
+        <div class="business-result" id="bcMarkupResult">
+          <span>Selling Price</span>
+          <strong>₱0.00</strong>
+        </div>
+
+      </div>
+
+
+      <!-- Discount -->
+      <div class="business-tool-card">
+
+        <h3>
+          <i class="fa-solid fa-percent"></i>
+          Discount Calculator
+        </h3>
+
+        <div class="business-grid">
+
+          <label>
+            Original Price
+            <input type="number" id="bcDiscountPrice" step="0.01" placeholder="0.00">
+          </label>
+
+          <label>
+            Discount %
+            <input type="number" id="bcDiscountPercent" step="0.01" placeholder="0">
+          </label>
+
+        </div>
+
+        <button class="primary-btn business-btn" id="bcDiscountBtn">
+          Calculate Discount
+        </button>
+
+        <div class="business-result" id="bcDiscountResult">
+          <span>Final Price</span>
+          <strong>₱0.00</strong>
+        </div>
+
+      </div>
+
+
+      <!-- Tax -->
+      <div class="business-tool-card">
+
+        <h3>
+          <i class="fa-solid fa-receipt"></i>
+          Tax Calculator
+        </h3>
+
+        <div class="business-grid">
+
+          <label>
+            Amount
+            <input type="number" id="bcTaxAmount" step="0.01" placeholder="0.00">
+          </label>
+
+          <label>
+            Tax %
+            <input type="number" id="bcTaxPercent" step="0.01" placeholder="0">
+          </label>
+
+        </div>
+
+        <button class="primary-btn business-btn" id="bcTaxBtn">
+          Calculate Tax
+        </button>
+
+        <div class="business-result" id="bcTaxResult">
+          <span>Total With Tax</span>
+          <strong>₱0.00</strong>
+        </div>
+
+      </div>
+
+
+      <!-- Margin -->
+      <div class="business-tool-card">
+
+        <h3>
+          <i class="fa-solid fa-chart-pie"></i>
+          Profit Margin
+        </h3>
+
+        <div class="business-grid">
+
+          <label>
+            Cost Price
+            <input type="number" id="bcMarginCost" step="0.01" placeholder="0.00">
+          </label>
+
+          <label>
+            Selling Price
+            <input type="number" id="bcMarginSelling" step="0.01" placeholder="0.00">
+          </label>
+
+        </div>
+
+        <button class="primary-btn business-btn" id="bcMarginBtn">
+          Calculate Margin
+        </button>
+
+        <div class="business-result" id="bcMarginResult">
+          <span>Profit Margin</span>
+          <strong>0.00%</strong>
+        </div>
+
+      </div>
+
+
+      <!-- Price + Quantity -->
+      <div class="business-tool-card">
+
+        <h3>
+          <i class="fa-solid fa-boxes-stacked"></i>
+          Total Cost Calculator
+        </h3>
+
+        <div class="business-grid">
+
+          <label>
+            Unit Cost
+            <input type="number" id="bcUnitCost" step="0.01" placeholder="0.00">
+          </label>
+
+          <label>
+            Quantity
+            <input type="number" id="bcTotalQty" step="1" min="1" value="1">
+          </label>
+
+        </div>
+
+        <button class="primary-btn business-btn" id="bcTotalBtn">
+          Calculate Total
+        </button>
+
+        <div class="business-result" id="bcTotalResult">
+          <span>Total Cost</span>
+          <strong>₱0.00</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+        <section class="page" id="page-suppliers">
+
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">STORE MANAGEMENT</p>
+      <h1>Suppliers</h1>
+      <p class="muted">
+        Manage suppliers, purchases, balances, and supplier relationships.
+      </p>
+    </div>
+
+    <button class="primary-btn" id="addSupplierBtn" type="button">
+      <i class="fa-solid fa-plus"></i>
+      Add Supplier
+    </button>
+  </div>
+
+  <div class="stat-grid">
+
+    <article class="stat-card blue">
+      <div class="stat-icon">
+        <i class="fa-solid fa-truck"></i>
+      </div>
+      <div>
+        <small>Total Suppliers</small>
+        <strong id="supplierCount">0</strong>
+        <span>Registered suppliers</span>
+      </div>
+    </article>
+
+    <article class="stat-card red">
+      <div class="stat-icon">
+        <i class="fa-solid fa-money-bill"></i>
+      </div>
+      <div>
+        <small>Outstanding</small>
+        <strong id="supplierPayable">₱0.00</strong>
+        <span>Supplier balances</span>
+      </div>
+    </article>
+
+    <article class="stat-card yellow">
+      <div class="stat-icon">
+        <i class="fa-solid fa-clock"></i>
+      </div>
+      <div>
+        <small>Pending Orders</small>
+        <strong id="supplierOrdersPending">0</strong>
+        <span>Purchase orders</span>
+      </div>
+    </article>
+
+    <article class="stat-card green">
+      <div class="stat-icon">
+        <i class="fa-solid fa-star"></i>
+      </div>
+      <div>
+        <small>Preferred</small>
+        <strong id="preferredSupplierCount">0</strong>
+        <span>Preferred suppliers</span>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="panel table-panel">
+
+    <div class="panel-head store-toolbar">
+
+      <div class="store-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          id="supplierSearch"
+          type="search"
+          placeholder="Search suppliers..."
+        >
+      </div>
+
+      <select id="supplierFilter">
+        <option value="all">All suppliers</option>
+        <option value="preferred">Preferred</option>
+        <option value="balance">With balance</option>
+      </select>
+
+    </div>
+
+    <div class="table-scroll">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Supplier</th>
+            <th>Contact</th>
+            <th>Payment Terms</th>
+            <th>Balance</th>
+            <th>Lead Time</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody id="suppliersTable"></tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="page" id="page-marketplace">
+
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">STORE MARKETPLACE</p>
+      <h1>Marketplace</h1>
+      <p class="muted">
+        Discover products and quickly add them to your store inventory.
+      </p>
+    </div>
+
+    <button class="outline-btn" id="marketWishlistBtn" type="button">
+      <i class="fa-solid fa-heart"></i>
+      Wishlist
+      <span id="wishlistCount">0</span>
+    </button>
+  </div>
+
+  <div class="marketplace-toolbar">
+
+    <div class="store-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input
+        id="marketplaceSearch"
+        type="search"
+        placeholder="Search products..."
+      >
+    </div>
+
+    <select id="marketplaceCategory">
+      <option value="all">All categories</option>
+      <option value="food">Food</option>
+      <option value="drinks">Drinks</option>
+      <option value="grocery">Grocery</option>
+      <option value="personal">Personal Care</option>
+      <option value="household">Household</option>
+      <option value="other">Other</option>
+    </select>
+
+    <select id="marketplaceSort">
+      <option value="featured">Featured</option>
+      <option value="price-low">Price: Low to High</option>
+      <option value="price-high">Price: High to Low</option>
+      <option value="margin">Highest Margin</option>
+    </select>
+
+  </div>
+
+  <div class="marketplace-grid" id="marketplaceGrid"></div>
+
+</section>
+
+<section class="page" id="page-notes">
+
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">STORE ORGANIZER</p>
+      <h1>Notes</h1>
+      <p class="muted">
+        Keep reminders, tasks, ideas, and important store information.
+      </p>
+    </div>
+
+    <button class="primary-btn" id="addNoteBtn" type="button">
+      <i class="fa-solid fa-plus"></i>
+      New Note
+    </button>
+  </div>
+
+  <div class="notes-toolbar">
+
+    <div class="store-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input
+        id="noteSearch"
+        type="search"
+        placeholder="Search notes..."
+      >
+    </div>
+
+    <select id="noteFilter">
+      <option value="all">All notes</option>
+      <option value="pinned">Pinned</option>
+      <option value="task">Tasks</option>
+      <option value="reminder">Reminders</option>
+      <option value="completed">Completed</option>
+    </select>
+
+  </div>
+
+  <div class="notes-grid" id="notesGrid"></div>
+
+</section>
+        
         <section class="page" id="page-settings">
           <div class="page-head">
             <div>
@@ -1861,7 +2619,11 @@
 })();
 </script>
 
+
+
   <script>
+
+
 
 function updateDashboardDateTime() {
   const now = new Date();
@@ -1887,12 +2649,12 @@ function updateDashboardDateTime() {
     }).format(now)
   );
 
-  let greeting = "Good evening! 👋";
+  let greeting = "Good evening, Superdog is here! ";
 
   if (hour >= 5 && hour < 12) {
-    greeting = "Good morning! 👋";
+    greeting = "Good morning, Superdog is here! ";
   } else if (hour >= 12 && hour < 18) {
-    greeting = "Good afternoon! 👋";
+    greeting = "Good afternoon, Superdog is here! ";
   }
 
   const greetingElement = document.getElementById("greeting");
@@ -1909,5 +2671,15 @@ setInterval(updateDashboardDateTime, 1000);
 <script src="app.js"></script>
 <script src="notification.js"></script>
 <script src="notification-settings.js"></script>
+
+<!-- FLOATING SUPERDOG -->
+<div class="superdog-float" id="superDogFloat">
+    <img
+        src="doggy.png"
+        alt="MyNegosyo SuperDog"
+        class="superdog-image"
+        id="superDogImage"
+    >
+</div>
 </body>
 </html>
