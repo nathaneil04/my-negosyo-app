@@ -2712,3 +2712,3136 @@ label {
   }
 
 }
+
+/* =========================================================
+   MYNEGOSYO — UANG / GCASH / E-LOAD / VAULT
+   EXTRA-VISIBLE MOBILE LAYOUT
+   Add this at the VERY BOTTOM of style.css
+   ========================================================= */
+
+/* Make these pages use the full available phone width */
+#page-utang,
+#page-gcash,
+#page-eload,
+#page-vault {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ---------------------------------------------------------
+   PAGE HEAD
+   --------------------------------------------------------- */
+
+#page-utang .page-head,
+#page-gcash .page-head,
+#page-eload .page-head,
+#page-vault .page-head {
+  width: 100%;
+}
+
+#page-utang .page-head h1,
+#page-gcash .page-head h1,
+#page-eload .page-head h1,
+#page-vault .page-head h1 {
+  font-size: clamp(26px, 7vw, 34px);
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+}
+
+#page-utang .page-head .muted,
+#page-gcash .page-head .muted,
+#page-eload .page-head .muted,
+#page-vault .page-head .muted {
+  font-size: clamp(11px, 3.1vw, 13px);
+  line-height: 1.45;
+  max-width: 620px;
+}
+
+#page-utang .page-head > button,
+#page-gcash .page-head > button,
+#page-eload .page-head > button,
+#page-vault .page-head > button {
+  min-height: 46px;
+  font-size: 13px;
+}
+
+/* ---------------------------------------------------------
+   UTANG SUMMARY
+   --------------------------------------------------------- */
+
+#page-utang .summary-banner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+#page-utang .summary-banner > div {
+  min-width: 0;
+  min-height: 84px;
+  padding: 17px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 16px;
+}
+
+#page-utang .summary-banner span {
+  font-size: 10px;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+#page-utang .summary-banner strong {
+  font-size: clamp(19px, 5vw, 27px);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+#page-utang .summary-banner .red-text {
+  font-size: clamp(22px, 6vw, 29px);
+}
+
+/* ---------------------------------------------------------
+   GCASH + CASH ON VAULT
+   --------------------------------------------------------- */
+
+#page-gcash .wallet-card,
+#page-vault .wallet-card {
+  width: 100%;
+  min-height: 145px;
+  padding: 24px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+#page-gcash .wallet-card > div,
+#page-vault .wallet-card > div {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+#page-gcash .wallet-card small,
+#page-vault .wallet-card small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+#page-gcash .wallet-card strong,
+#page-vault .wallet-card strong {
+  display: block;
+  font-size: clamp(28px, 8vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -1.2px;
+  white-space: nowrap;
+}
+
+#page-gcash .wallet-card span,
+#page-vault .wallet-card span {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+#page-gcash .wallet-bg,
+#page-vault .wallet-bg {
+  flex: 0 0 auto;
+  font-size: clamp(70px, 18vw, 105px);
+  margin: 0;
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------
+   E-LOAD NETWORK CARDS
+   --------------------------------------------------------- */
+
+#page-eload .network-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+#page-eload .network-grid > div {
+  min-width: 0;
+  min-height: 105px;
+  padding: 17px 15px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#page-eload .network-grid span {
+  font-size: 10px;
+  line-height: 1.3;
+  min-height: 27px;
+}
+
+#page-eload .network-grid strong {
+  font-size: clamp(20px, 5vw, 27px);
+  line-height: 1.1;
+  letter-spacing: -0.6px;
+  margin-top: 7px;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+   TABLE AREA
+   --------------------------------------------------------- */
+
+#page-utang .table-panel,
+#page-gcash .table-panel,
+#page-eload .table-panel,
+#page-vault .table-panel {
+  width: 100%;
+  margin-top: 14px;
+}
+
+/* ---------------------------------------------------------
+   TABLET / LARGE PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  #page-utang .summary-banner,
+  #page-eload .network-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #page-utang .summary-banner > div {
+    min-height: 92px;
+  }
+
+  #page-eload .network-grid > div {
+    min-height: 108px;
+  }
+
+  #page-gcash .wallet-card,
+  #page-vault .wallet-card {
+    min-height: 155px;
+    padding: 22px;
+  }
+}
+
+/* ---------------------------------------------------------
+   NORMAL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+  /* More horizontal breathing room */
+  #page-utang .summary-banner,
+  #page-eload .network-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Utang */
+  #page-utang .summary-banner > div {
+    min-height: 88px;
+    padding: 16px 17px;
+  }
+
+  #page-utang .summary-banner span {
+    font-size: 10px;
+  }
+
+  #page-utang .summary-banner strong {
+    font-size: 24px;
+  }
+
+  /* GCash + Vault */
+  #page-gcash .wallet-card,
+  #page-vault .wallet-card {
+    min-height: 145px;
+    padding: 21px 18px;
+    border-radius: 18px;
+    gap: 10px;
+  }
+
+  #page-gcash .wallet-card strong,
+  #page-vault .wallet-card strong {
+    font-size: clamp(28px, 8.5vw, 34px);
+  }
+
+  #page-gcash .wallet-card small,
+  #page-vault .wallet-card small {
+    font-size: 10px;
+  }
+
+  #page-gcash .wallet-card span,
+  #page-vault .wallet-card span {
+    font-size: 10px;
+    margin-top: 7px;
+  }
+
+  #page-gcash .wallet-bg,
+  #page-vault .wallet-bg {
+    font-size: 68px;
+  }
+
+  /* E-Load */
+  #page-eload .network-grid > div {
+    min-height: 82px;
+    padding: 16px 17px;
+  }
+
+  #page-eload .network-grid span {
+    min-height: auto;
+    font-size: 10px;
+  }
+
+  #page-eload .network-grid strong {
+    font-size: 24px;
+    margin-top: 5px;
+  }
+
+  /* Bigger action buttons */
+  #page-utang .page-head > button,
+  #page-gcash .page-head > button,
+  #page-eload .page-head > button,
+  #page-vault .page-head > button {
+    width: 100%;
+    min-height: 46px;
+    font-size: 13px;
+  }
+}
+
+/* ---------------------------------------------------------
+   VERY SMALL PHONES — 320px / 360px
+   --------------------------------------------------------- */
+
+@media (max-width: 360px) {
+
+  #page-utang .page-head h1,
+  #page-gcash .page-head h1,
+  #page-eload .page-head h1,
+  #page-vault .page-head h1 {
+    font-size: 25px;
+  }
+
+  #page-utang .page-head .muted,
+  #page-gcash .page-head .muted,
+  #page-eload .page-head .muted,
+  #page-vault .page-head .muted {
+    font-size: 10.5px;
+  }
+
+  /* Utang cards */
+  #page-utang .summary-banner > div {
+    min-height: 82px;
+    padding: 15px;
+  }
+
+  #page-utang .summary-banner strong {
+    font-size: 23px;
+  }
+
+  /* Wallet cards */
+  #page-gcash .wallet-card,
+  #page-vault .wallet-card {
+    min-height: 135px;
+    padding: 19px 15px;
+  }
+
+  #page-gcash .wallet-card strong,
+  #page-vault .wallet-card strong {
+    font-size: 27px;
+  }
+
+  #page-gcash .wallet-bg,
+  #page-vault .wallet-bg {
+    font-size: 58px;
+  }
+
+  /* E-load cards */
+  #page-eload .network-grid > div {
+    min-height: 78px;
+    padding: 14px 15px;
+  }
+
+  #page-eload .network-grid strong {
+    font-size: 22px;
+  }
+}
+
+/* ---------------------------------------------------------
+   EXTRA SMALL DEVICES
+   --------------------------------------------------------- */
+
+@media (max-width: 320px) {
+
+  #page-gcash .wallet-card,
+  #page-vault .wallet-card {
+    min-height: 128px;
+    padding: 17px 13px;
+  }
+
+  #page-gcash .wallet-card strong,
+  #page-vault .wallet-card strong {
+    font-size: 25px;
+  }
+
+  #page-gcash .wallet-bg,
+  #page-vault .wallet-bg {
+    font-size: 50px;
+  }
+
+  #page-eload .network-grid > div,
+  #page-utang .summary-banner > div {
+    padding: 14px;
+  }
+}
+
+/* ---------------------------------------------------------
+   PREVENT CLIPPING / OVERFLOW
+   --------------------------------------------------------- */
+
+#page-utang *,
+#page-gcash *,
+#page-eload *,
+#page-vault * {
+  max-width: 100%;
+}
+
+#page-utang .summary-banner strong,
+#page-gcash .wallet-card strong,
+#page-vault .wallet-card strong,
+#page-eload .network-grid strong {
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* Keep cards visually separated from bottom navigation */
+@media (max-width: 768px) {
+  #page-utang,
+  #page-gcash,
+  #page-eload,
+  #page-vault {
+    padding-bottom: 18px;
+  }
+}
+
+/* =========================================================
+   TODAY'S SALES — GCASH-STYLE CARD
+   ========================================================= */
+
+/* Turn the Today's Sales dashboard stat into a large card */
+.stat-grid .stat-card.blue {
+  min-height: 145px;
+  padding: 22px 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(13, 110, 253, 0.18);
+
+  background: linear-gradient(
+    135deg,
+    #0d6efd 0%,
+    #1556b9 100%
+  );
+
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  box-shadow:
+    0 12px 30px rgba(13, 110, 253, 0.20);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft decorative glow */
+.stat-grid .stat-card.blue::after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  right: -45px;
+  bottom: -70px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+/* Larger icon container */
+.stat-grid .stat-card.blue .stat-icon {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+
+  border-radius: 17px;
+
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 24px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* Text area */
+.stat-grid .stat-card.blue > div:last-child {
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Today's Sales label */
+.stat-grid .stat-card.blue small {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 12px;
+  font-weight: 500;
+
+  margin-bottom: 5px;
+}
+
+/* Sales amount */
+.stat-grid .stat-card.blue strong {
+  display: block;
+
+  color: #fff;
+
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1.3px;
+
+  margin: 0;
+}
+
+/* Trend */
+.stat-grid .stat-card.blue .trend {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 11px;
+  font-weight: 500;
+
+  margin-top: 9px;
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  .stat-grid .stat-card.blue {
+    min-height: 145px;
+    padding: 22px 20px;
+    border-radius: 20px;
+    gap: 17px;
+  }
+
+  .stat-grid .stat-card.blue .stat-icon {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border-radius: 16px;
+    font-size: 23px;
+  }
+
+  .stat-grid .stat-card.blue strong {
+    font-size: clamp(27px, 8vw, 34px);
+  }
+
+  .stat-grid .stat-card.blue small {
+    font-size: 11px;
+  }
+
+  .stat-grid .stat-card.blue .trend {
+    font-size: 10px;
+    margin-top: 8px;
+  }
+}
+
+/* ---------------------------------------------------------
+   SMALL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-grid .stat-card.blue {
+    width: 100%;
+    min-height: 145px;
+    padding: 21px 18px;
+    gap: 16px;
+  }
+
+  .stat-grid .stat-card.blue .stat-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    font-size: 22px;
+  }
+
+  .stat-grid .stat-card.blue strong {
+    font-size: 30px;
+  }
+
+  .stat-grid .stat-card.blue small {
+    font-size: 11px;
+  }
+
+  .stat-grid .stat-card.blue .trend {
+    font-size: 10px;
+  }
+}
+
+/* ---------------------------------------------------------
+   VERY SMALL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 360px) {
+
+  .stat-grid .stat-card.blue {
+    min-height: 138px;
+    padding: 18px 15px;
+    gap: 13px;
+  }
+
+  .stat-grid .stat-card.blue .stat-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 14px;
+    font-size: 20px;
+  }
+
+  .stat-grid .stat-card.blue strong {
+    font-size: 27px;
+  }
+
+  .stat-grid .stat-card.blue small {
+    font-size: 10px;
+  }
+
+  .stat-grid .stat-card.blue .trend {
+    font-size: 9px;
+    margin-top: 6px;
+  }
+}
+
+/* =========================================================
+   MYNEGOSYO — NOTIFICATION SYSTEM
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   WRAPPER
+   --------------------------------------------------------- */
+
+.notification-wrapper {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+
+/* ---------------------------------------------------------
+   NOTIFICATION BUTTON
+   --------------------------------------------------------- */
+
+.notification-wrapper .notification {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ---------------------------------------------------------
+   BADGE
+   --------------------------------------------------------- */
+
+.notification-badge {
+  position: absolute;
+
+  top: -3px;
+  right: -3px;
+
+  min-width: 17px;
+  height: 17px;
+
+  padding: 0 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background: #e53935;
+  color: #fff;
+
+  border: 2px solid #fff;
+
+  font-size: 8px;
+  font-weight: 900;
+  line-height: 1;
+
+  box-shadow:
+    0 3px 8px rgba(229,57,53,.25);
+
+  pointer-events: none;
+
+  transform: scale(1);
+  transition: .2s ease;
+}
+
+
+.notification-badge:empty {
+  display: none;
+}
+
+
+.notification-badge.hidden {
+  display: none;
+}
+
+
+/* ---------------------------------------------------------
+   PANEL
+   --------------------------------------------------------- */
+
+.notification-panel {
+  position: absolute;
+
+  top: calc(100% + 12px);
+  right: 0;
+
+  width: min(390px, calc(100vw - 24px));
+
+  background: #fff;
+
+  border: 1px solid var(--line);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 20px 55px rgba(15,31,58,.18);
+
+  overflow: hidden;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform:
+    translateY(-8px)
+    scale(.98);
+
+  transform-origin:
+    top right;
+
+  transition:
+    opacity .18s ease,
+    visibility .18s ease,
+    transform .18s ease;
+
+  z-index: 100;
+}
+
+
+.notification-panel.open {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
+.notification-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  padding: 17px 17px 14px;
+
+  border-bottom: 1px solid #eef1f5;
+
+  background: #fff;
+}
+
+
+.notification-head > div {
+  min-width: 0;
+}
+
+
+.notification-head strong {
+  display: block;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  color: var(--ink);
+
+  margin-bottom: 3px;
+}
+
+
+.notification-head span {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+.notification-read {
+  flex: 0 0 auto;
+
+  background: transparent;
+
+  color: var(--blue);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  padding: 6px 0;
+
+  white-space: nowrap;
+}
+
+
+.notification-read:hover {
+  color: var(--blue-dark);
+}
+
+
+/* ---------------------------------------------------------
+   LIST
+   --------------------------------------------------------- */
+
+.notification-list {
+  max-height: 390px;
+
+  overflow-y: auto;
+
+  overscroll-behavior:
+    contain;
+}
+
+
+.notification-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+.notification-list::-webkit-scrollbar-thumb {
+  background: #d8dee9;
+  border-radius: 99px;
+}
+
+
+/* ---------------------------------------------------------
+   ITEM
+   --------------------------------------------------------- */
+
+.notification-item {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+
+  padding: 13px 15px;
+
+  background: #fff;
+
+  border: 0;
+
+  border-bottom: 1px solid #f0f2f6;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background .15s ease;
+}
+
+
+.notification-item:hover {
+  background: #f8faff;
+}
+
+
+.notification-item.unread {
+  background: #f4f8ff;
+}
+
+
+.notification-item:last-child {
+  border-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   ICON
+   --------------------------------------------------------- */
+
+.notification-icon {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  font-size: 14px;
+}
+
+
+.notification-icon.red {
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+
+.notification-icon.yellow {
+  background: var(--yellow-soft);
+  color: #b88700;
+}
+
+
+.notification-icon.blue {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+
+.notification-icon.green {
+  background: #eaf8f1;
+  color: #1e9d60;
+}
+
+
+.notification-icon.orange {
+  background: #fff1e8;
+  color: #d66a16;
+}
+
+
+/* ---------------------------------------------------------
+   CONTENT
+   --------------------------------------------------------- */
+
+.notification-content {
+  min-width: 0;
+  flex: 1;
+}
+
+
+.notification-title {
+  display: block;
+
+  font-size: 11px;
+
+  line-height: 1.35;
+
+  font-weight: 800;
+
+  color: var(--ink);
+
+  margin-bottom: 3px;
+}
+
+
+.notification-text {
+  display: block;
+
+  font-size: 10px;
+
+  line-height: 1.45;
+
+  color: var(--muted);
+
+  overflow-wrap: anywhere;
+}
+
+
+.notification-time {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 8px;
+
+  color: #9ba5b4;
+}
+
+
+/* ---------------------------------------------------------
+   UNREAD DOT
+   --------------------------------------------------------- */
+
+.notification-unread {
+  width: 7px;
+  height: 7px;
+
+  flex: 0 0 7px;
+
+  border-radius: 50%;
+
+  background: var(--blue);
+
+  margin-top: 7px;
+
+  box-shadow:
+    0 0 0 3px rgba(13,110,253,.08);
+}
+
+
+/* ---------------------------------------------------------
+   EMPTY STATE
+   --------------------------------------------------------- */
+
+.notification-empty {
+  min-height: 210px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 30px 20px;
+}
+
+
+.notification-empty i {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 15px;
+
+  background: #f2f5f9;
+
+  color: #9aa6b6;
+
+  font-size: 19px;
+
+  margin-bottom: 12px;
+}
+
+
+.notification-empty strong {
+  font-size: 12px;
+  color: #425069;
+
+  margin-bottom: 4px;
+}
+
+
+.notification-empty span {
+  font-size: 9px;
+  color: #8f9bad;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+.notification-footer {
+  padding: 11px 15px;
+
+  border-top: 1px solid #eef1f5;
+
+  background: #fbfcff;
+}
+
+
+.notification-footer button {
+  width: 100%;
+
+  height: 36px;
+
+  border: 0;
+
+  border-radius: 10px;
+
+  background: var(--blue-soft);
+
+  color: var(--blue);
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.notification-footer button:hover {
+  background: #dceaff;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  .notification-panel {
+    position: fixed;
+
+    top: 68px;
+    right: 12px;
+    left: 12px;
+
+    width: auto;
+
+    max-height:
+      calc(100vh - 90px);
+
+    border-radius: 18px;
+  }
+
+
+  .notification-list {
+    max-height:
+      calc(100vh - 220px);
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   SMALL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+  .notification-panel {
+    top: 68px;
+
+    right: 8px;
+    left: 8px;
+
+    width: auto;
+
+    border-radius: 16px;
+  }
+
+
+  .notification-head {
+    padding: 15px 14px 12px;
+  }
+
+
+  .notification-item {
+    padding: 12px;
+    gap: 9px;
+  }
+
+
+  .notification-icon {
+    width: 35px;
+    height: 35px;
+    flex-basis: 35px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+  }
+
+
+  .notification-title {
+    font-size: 10px;
+  }
+
+
+  .notification-text {
+    font-size: 9px;
+  }
+
+
+  .notification-time {
+    font-size: 8px;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   VERY SMALL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 360px) {
+
+  .notification-head strong {
+    font-size: 14px;
+  }
+
+
+  .notification-read {
+    font-size: 9px;
+  }
+
+
+  .notification-item {
+    padding: 11px;
+  }
+
+}
+
+/* =========================================================
+   MYNEGOSYO — FULL NOTIFICATION SYSTEM
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   WRAPPER
+   --------------------------------------------------------- */
+
+.notification-wrapper {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+
+/* ---------------------------------------------------------
+   NOTIFICATION BUTTON
+   --------------------------------------------------------- */
+
+.notification-wrapper .notification {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ---------------------------------------------------------
+   BADGE
+   --------------------------------------------------------- */
+
+.notification-badge {
+  position: absolute;
+
+  top: -4px;
+  right: -4px;
+
+  min-width: 18px;
+  height: 18px;
+
+  padding: 0 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background: #e53935;
+  color: #ffffff;
+
+  border: 2px solid #ffffff;
+
+  font-size: 8px;
+  font-weight: 900;
+  line-height: 1;
+
+  box-shadow:
+    0 4px 10px rgba(229, 57, 53, .28);
+
+  pointer-events: none;
+
+  z-index: 5;
+}
+
+
+.notification-badge.hidden {
+  display: none;
+}
+
+
+/* ---------------------------------------------------------
+   PANEL
+   --------------------------------------------------------- */
+
+.notification-panel {
+  position: absolute;
+
+  top: calc(100% + 12px);
+  right: 0;
+
+  width: min(
+    400px,
+    calc(100vw - 24px)
+  );
+
+  background: #ffffff;
+
+  border: 1px solid var(--line);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 22px 60px rgba(15, 31, 58, .20);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform:
+    translateY(-8px)
+    scale(.97);
+
+  transform-origin:
+    top right;
+
+  transition:
+    opacity .18s ease,
+    visibility .18s ease,
+    transform .18s ease;
+
+  z-index: 9999;
+}
+
+
+.notification-panel.open {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
+.notification-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  padding: 17px;
+
+  border-bottom:
+    1px solid #edf1f6;
+
+  background: #ffffff;
+}
+
+
+.notification-title-area {
+  min-width: 0;
+  flex: 1;
+}
+
+
+.notification-title-area strong {
+  display: block;
+
+  color: var(--ink);
+
+  font-size: 15px;
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  margin-bottom: 4px;
+}
+
+
+.notification-title-area span {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  line-height: 1.35;
+}
+
+
+.notification-read {
+  flex: 0 0 auto;
+
+  padding: 6px 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--blue);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+}
+
+
+.notification-read:hover {
+  text-decoration: underline;
+}
+
+
+/* ---------------------------------------------------------
+   LIST
+   --------------------------------------------------------- */
+
+.notification-list {
+  max-height: 420px;
+
+  overflow-y: auto;
+
+  overscroll-behavior: contain;
+}
+
+
+.notification-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+.notification-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.notification-list::-webkit-scrollbar-thumb {
+  background: #d7dee8;
+
+  border-radius: 999px;
+}
+
+
+/* ---------------------------------------------------------
+   ITEM
+   --------------------------------------------------------- */
+
+.notification-item {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+
+  padding: 13px 15px;
+
+  background: #ffffff;
+
+  border: 0;
+
+  border-bottom:
+    1px solid #f0f3f7;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background .15s ease;
+}
+
+
+.notification-item:hover {
+  background: #f7faff;
+}
+
+
+.notification-item.unread {
+  background:
+    linear-gradient(
+      90deg,
+      #f4f8ff 0%,
+      #ffffff 100%
+    );
+}
+
+
+.notification-item:last-child {
+  border-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   ICON
+   --------------------------------------------------------- */
+
+.notification-icon {
+  width: 40px;
+  height: 40px;
+
+  flex: 0 0 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  font-size: 14px;
+}
+
+
+.notification-icon.red {
+  background: #fff0f0;
+  color: #e53935;
+}
+
+
+.notification-icon.yellow {
+  background: #fff8df;
+  color: #c18a00;
+}
+
+
+.notification-icon.blue {
+  background: #edf4ff;
+  color: #0d6efd;
+}
+
+
+.notification-icon.green {
+  background: #eaf8f1;
+  color: #1b9b61;
+}
+
+
+.notification-icon.orange {
+  background: #fff0e7;
+  color: #d86b17;
+}
+
+
+/* ---------------------------------------------------------
+   CONTENT
+   --------------------------------------------------------- */
+
+.notification-content {
+  min-width: 0;
+  flex: 1;
+}
+
+
+.notification-item-title {
+  display: block;
+
+  color: var(--ink);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  line-height: 1.35;
+
+  margin-bottom: 3px;
+}
+
+
+.notification-item-text {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+
+.notification-item-time {
+  display: block;
+
+  color: #9aa6b6;
+
+  font-size: 8px;
+
+  line-height: 1.3;
+
+  margin-top: 5px;
+}
+
+
+/* ---------------------------------------------------------
+   UNREAD DOT
+   --------------------------------------------------------- */
+
+.notification-unread-dot {
+  width: 7px;
+  height: 7px;
+
+  flex: 0 0 7px;
+
+  margin-top: 6px;
+
+  border-radius: 50%;
+
+  background: var(--blue);
+
+  box-shadow:
+    0 0 0 3px rgba(13,110,253,.08);
+}
+
+
+/* ---------------------------------------------------------
+   EMPTY
+   --------------------------------------------------------- */
+
+.notification-empty {
+  min-height: 220px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 30px 20px;
+}
+
+
+.notification-empty-icon {
+  width: 52px;
+  height: 52px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 12px;
+
+  border-radius: 16px;
+
+  background: #f2f5f9;
+
+  color: #9da8b8;
+
+  font-size: 19px;
+}
+
+
+.notification-empty strong {
+  color: #46546a;
+
+  font-size: 12px;
+
+  margin-bottom: 4px;
+}
+
+
+.notification-empty span {
+  color: #95a0b0;
+
+  font-size: 9px;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+.notification-footer {
+  padding: 11px 15px;
+
+  border-top:
+    1px solid #edf1f6;
+
+  background: #fafcff;
+}
+
+
+.notification-footer button {
+  width: 100%;
+
+  height: 36px;
+
+  border: 0;
+
+  border-radius: 10px;
+
+  background: var(--blue-soft);
+
+  color: var(--blue);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background .15s ease,
+    transform .15s ease;
+}
+
+
+.notification-footer button:hover {
+  background: #dceaff;
+
+  transform: translateY(-1px);
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  .notification-panel {
+    position: fixed;
+
+    top: 68px;
+
+    left: 12px;
+    right: 12px;
+
+    width: auto;
+
+    max-width: none;
+
+    border-radius: 18px;
+  }
+
+
+  .notification-list {
+    max-height:
+      calc(100vh - 220px);
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   SMALL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+  .notification-panel {
+    top: 65px;
+
+    left: 8px;
+    right: 8px;
+
+    border-radius: 16px;
+  }
+
+
+  .notification-head {
+    padding: 14px;
+  }
+
+
+  .notification-title-area strong {
+    font-size: 14px;
+  }
+
+
+  .notification-title-area span {
+    font-size: 9px;
+  }
+
+
+  .notification-read {
+    font-size: 8px;
+  }
+
+
+  .notification-item {
+    padding: 12px;
+    gap: 9px;
+  }
+
+
+  .notification-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-basis: 36px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+  }
+
+
+  .notification-item-title {
+    font-size: 10px;
+  }
+
+
+  .notification-item-text {
+    font-size: 9px;
+  }
+
+
+  .notification-item-time {
+    font-size: 8px;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   VERY SMALL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 360px) {
+
+  .notification-panel {
+    left: 6px;
+    right: 6px;
+  }
+
+
+  .notification-item {
+    padding: 11px;
+  }
+
+
+  .notification-icon {
+    width: 34px;
+    height: 34px;
+
+    flex-basis: 34px;
+  }
+
+
+  .notification-title-area strong {
+    font-size: 13px;
+  }
+
+}
+
+/* =========================================================
+   MYNEGOSYO — DEVICE NOTIFICATION SETTINGS
+   ========================================================= */
+
+.device-notification-settings {
+  margin-top: 18px;
+  width: 100%;
+}
+
+/* Header */
+.device-notification-settings .settings-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.device-notification-settings .settings-eyebrow {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--blue);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.device-notification-settings .settings-card-head h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.device-notification-settings .settings-card-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* Status Badge */
+.device-notification-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 30px;
+  padding: 7px 11px;
+  border: 1px solid #e6ebf2;
+  border-radius: 999px;
+  background: #f4f6f9;
+  color: #7c8797;
+  font-size: 9px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.device-notification-status i {
+  font-size: 10px;
+}
+
+.device-notification-status.enabled {
+  background: #eaf8f1;
+  border-color: #cdebdc;
+  color: #1b9b61;
+}
+
+.device-notification-status.denied {
+  background: #fff0f0;
+  border-color: #f3cccc;
+  color: #e53935;
+}
+
+.device-notification-status.warning {
+  background: #fff8df;
+  border-color: #f0df9c;
+  color: #ad7900;
+}
+
+/* Permission Box */
+.notification-permission-box {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px;
+  border: 1px solid #e1e9f3;
+  border-radius: 15px;
+  background: linear-gradient(
+    135deg,
+    #f7faff 0%,
+    #fbfdff 100%
+  );
+}
+
+.permission-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 16px;
+}
+
+.permission-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.permission-content strong {
+  display: block;
+  margin: 0;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.permission-content span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.notification-permission-box .primary-btn {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+/* Notification Options Container */
+.notification-settings-list {
+  width: 100%;
+  margin-top: 12px;
+  overflow: hidden;
+  border: 1px solid #e7edf4;
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+/* Individual Setting */
+.notification-setting-row {
+  width: 100%;
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #edf1f6;
+  background: #ffffff;
+  cursor: pointer;
+  transition:
+    background .18s ease,
+    transform .18s ease;
+}
+
+.notification-setting-row:last-child {
+  border-bottom: 0;
+}
+
+.notification-setting-row:hover {
+  background: #fafcff;
+}
+
+/* Setting Icon */
+.notification-setting-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  font-size: 13px;
+}
+
+.notification-setting-icon.red {
+  background: #fff0f0;
+  color: #e53935;
+}
+
+.notification-setting-icon.yellow {
+  background: #fff8df;
+  color: #b98300;
+}
+
+.notification-setting-icon.orange {
+  background: #fff0e7;
+  color: #d86b17;
+}
+
+.notification-setting-icon.blue {
+  background: #edf4ff;
+  color: #0d6efd;
+}
+
+.notification-setting-icon.green {
+  background: #eaf8f1;
+  color: #1b9b61;
+}
+
+.notification-setting-icon.purple {
+  background: #f2edff;
+  color: #7652d9;
+}
+
+.notification-setting-icon.gold {
+  background: #fff7dd;
+  color: #ad7900;
+}
+
+/* Setting Text */
+.notification-setting-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.notification-setting-text strong {
+  display: block;
+  margin: 0;
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.notification-setting-text span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 8px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+/* Toggle Switch */
+.notification-switch {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 42px;
+  height: 23px;
+
+  position: relative;
+  flex: 0 0 42px;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: #dce3ec;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    background .2s ease,
+    box-shadow .2s ease;
+}
+
+.notification-switch::after {
+  content: "";
+
+  position: absolute;
+
+  top: 3px;
+  left: 3px;
+
+  width: 17px;
+  height: 17px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, .15);
+
+  transition:
+    transform .2s ease;
+}
+
+.notification-switch:hover {
+  box-shadow:
+    0 0 0 3px rgba(13, 110, 253, .06);
+}
+
+.notification-switch:checked {
+  background: var(--blue);
+}
+
+.notification-switch:checked::after {
+  transform: translateX(19px);
+}
+
+.notification-switch:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.notification-switch:focus-visible {
+  box-shadow:
+    0 0 0 3px rgba(13, 110, 253, .16);
+}
+
+/* Bottom Actions */
+.device-notification-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.device-notification-actions .outline-btn {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+#notificationSaveMessage {
+  min-height: 15px;
+  color: #1b9b61;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .device-notification-settings .settings-card-head {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .device-notification-status {
+    align-self: flex-start;
+  }
+
+  .notification-permission-box {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .permission-content {
+    flex: 1 1 calc(100% - 60px);
+  }
+
+  .notification-permission-box .primary-btn {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .device-notification-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .device-notification-actions .outline-btn {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .device-notification-settings {
+    margin-top: 14px;
+  }
+
+  .device-notification-settings .settings-card-head h3 {
+    font-size: 15px;
+  }
+
+  .device-notification-settings .settings-card-head p {
+    font-size: 9px;
+  }
+
+  .notification-permission-box {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 13px;
+  }
+
+  .permission-icon {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+
+  .permission-content {
+    flex: 1 1 calc(100% - 50px);
+  }
+
+  .permission-content strong {
+    font-size: 10px;
+  }
+
+  .permission-content span {
+    font-size: 8px;
+  }
+
+  .notification-setting-row {
+    min-height: 58px;
+    padding: 10px;
+    gap: 9px;
+  }
+
+  .notification-setting-icon {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+    border-radius: 9px;
+    font-size: 12px;
+  }
+
+  .notification-setting-text strong {
+    font-size: 9px;
+  }
+
+  .notification-setting-text span {
+    font-size: 7.5px;
+  }
+
+  .notification-switch {
+    width: 38px;
+    height: 21px;
+    flex-basis: 38px;
+  }
+
+  .notification-switch::after {
+    width: 15px;
+    height: 15px;
+    top: 3px;
+    left: 3px;
+  }
+
+  .notification-switch:checked::after {
+    transform: translateX(17px);
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .notification-setting-row {
+    padding: 9px;
+    gap: 8px;
+  }
+
+  .notification-setting-icon {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+
+  .notification-setting-text strong {
+    font-size: 8.5px;
+  }
+
+  .notification-setting-text span {
+    font-size: 7px;
+  }
+
+  .notification-switch {
+    width: 36px;
+    height: 20px;
+    flex-basis: 36px;
+  }
+
+  .notification-switch::after {
+    width: 14px;
+    height: 14px;
+  }
+
+  .notification-switch:checked::after {
+    transform: translateX(16px);
+  }
+}
+
+/* =========================================================
+   ENABLED NOTIFICATION BUTTON
+   ========================================================= */
+
+#enableDeviceNotifications.notification-enabled-button {
+  background: #1b9b61;
+  border-color: #1b9b61;
+  color: #ffffff;
+  cursor: default;
+}
+
+#enableDeviceNotifications.notification-enabled-button {
+  background: #1b9b61 !important;
+  border-color: #1b9b61 !important;
+  color: #fff !important;
+}
+
+#enableDeviceNotifications.notification-enabled-button i {
+  color: #fff !important;
+}
+
+/* =========================================================
+   MYNEGOSYO — UNIVERSAL DEVICE NOTIFICATION SETTINGS
+   Responsive for desktop, tablet, mobile and small phones
+   ========================================================= */
+
+:root {
+  --notif-gap: clamp(8px, 1.5vw, 16px);
+  --notif-radius: clamp(10px, 1.5vw, 16px);
+  --notif-icon-size: clamp(32px, 5vw, 42px);
+  --notif-title-size: clamp(9px, 1.2vw, 12px);
+  --notif-text-size: clamp(7px, 1vw, 10px);
+}
+
+/* =========================================================
+   MAIN CARD
+   ========================================================= */
+
+.device-notification-settings {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: clamp(10px, 2vw, 20px) 0 0;
+  overflow: hidden;
+}
+
+/* Make every child respect the available width */
+.device-notification-settings *,
+.device-notification-settings *::before,
+.device-notification-settings *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.device-notification-settings .settings-card-head {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--notif-gap);
+}
+
+.device-notification-settings .settings-card-head > div:first-child {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.device-notification-settings .settings-eyebrow {
+  display: block;
+  margin: 0 0 5px;
+  color: var(--blue);
+  font-size: clamp(7px, 0.9vw, 9px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.device-notification-settings .settings-card-head h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(14px, 1.7vw, 18px);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.device-notification-settings .settings-card-head p {
+  max-width: 720px;
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: clamp(8px, 1vw, 10px);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   STATUS BADGE
+   ========================================================= */
+
+.device-notification-status {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 30px;
+  max-width: 100%;
+  padding: 7px 11px;
+  border: 1px solid #e6ebf2;
+  border-radius: 999px;
+  background: #f4f6f9;
+  color: #7c8797;
+  font-size: clamp(7px, 0.9vw, 9px);
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.device-notification-status.enabled {
+  color: #1b9b61;
+  background: #eaf8f1;
+  border-color: #cdebdc;
+}
+
+.device-notification-status.denied {
+  color: #e53935;
+  background: #fff0f0;
+  border-color: #f3cccc;
+}
+
+.device-notification-status.warning {
+  color: #ad7900;
+  background: #fff8df;
+  border-color: #f0df9c;
+}
+
+/* =========================================================
+   PERMISSION BOX
+   ========================================================= */
+
+.notification-permission-box {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--notif-gap);
+  margin-top: clamp(12px, 2vw, 18px);
+  padding: clamp(10px, 2vw, 16px);
+  border: 1px solid #e1e9f3;
+  border-radius: var(--notif-radius);
+  background: linear-gradient(
+    135deg,
+    #f7faff 0%,
+    #fbfdff 100%
+  );
+}
+
+.permission-icon {
+  width: var(--notif-icon-size);
+  height: var(--notif-icon-size);
+  min-width: var(--notif-icon-size);
+  min-height: var(--notif-icon-size);
+  display: grid;
+  place-items: center;
+  border-radius: clamp(8px, 1vw, 12px);
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: clamp(12px, 1.6vw, 16px);
+}
+
+.permission-content {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.permission-content strong {
+  display: block;
+  color: var(--ink);
+  font-size: var(--notif-title-size);
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.permission-content span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: var(--notif-text-size);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.notification-permission-box .primary-btn {
+  min-width: 0;
+  min-height: 36px;
+  padding: 0 clamp(10px, 1.5vw, 15px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   NOTIFICATION SETTINGS LIST
+   ========================================================= */
+
+.notification-settings-list {
+  width: 100%;
+  min-width: 0;
+  margin-top: 12px;
+  overflow: hidden;
+  border: 1px solid #e7edf4;
+  border-radius: var(--notif-radius);
+  background: #fff;
+}
+
+/* =========================================================
+   UNIVERSAL ROW
+   ========================================================= */
+
+.notification-setting-row {
+  width: 100%;
+  min-width: 0;
+  min-height: clamp(54px, 7vw, 66px);
+
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+
+  gap: clamp(8px, 1.5vw, 12px);
+
+  margin: 0;
+  padding:
+    clamp(9px, 1.5vw, 13px)
+    clamp(10px, 1.8vw, 15px);
+
+  border: 0;
+  border-bottom: 1px solid #edf1f6;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    background .18s ease,
+    transform .18s ease;
+}
+
+.notification-setting-row:last-child {
+  border-bottom: 0;
+}
+
+.notification-setting-row:hover {
+  background: #fafcff;
+}
+
+/* =========================================================
+   ROW ICON
+   ========================================================= */
+
+.notification-setting-icon {
+  width: var(--notif-icon-size);
+  height: var(--notif-icon-size);
+  min-width: var(--notif-icon-size);
+  min-height: var(--notif-icon-size);
+
+  display: grid;
+  place-items: center;
+
+  border-radius: clamp(8px, 1vw, 12px);
+
+  font-size: clamp(11px, 1.5vw, 14px);
+}
+
+/* Icon colors */
+
+.notification-setting-icon.red {
+  background: #fff0f0;
+  color: #e53935;
+}
+
+.notification-setting-icon.yellow {
+  background: #fff8df;
+  color: #b98300;
+}
+
+.notification-setting-icon.orange {
+  background: #fff0e7;
+  color: #d86b17;
+}
+
+.notification-setting-icon.blue {
+  background: #edf4ff;
+  color: #0d6efd;
+}
+
+.notification-setting-icon.green {
+  background: #eaf8f1;
+  color: #1b9b61;
+}
+
+.notification-setting-icon.purple {
+  background: #f2edff;
+  color: #7652d9;
+}
+
+.notification-setting-icon.gold {
+  background: #fff7dd;
+  color: #ad7900;
+}
+
+/* =========================================================
+   ROW TEXT
+   ========================================================= */
+
+.notification-setting-text {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.notification-setting-text strong {
+  display: block;
+  width: 100%;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(9px, 1.1vw, 11px);
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.notification-setting-text span {
+  display: block;
+  width: 100%;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: clamp(7px, .9vw, 9px);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   UNIVERSAL SWITCH
+   ========================================================= */
+
+.notification-switch {
+  appearance: none;
+  -webkit-appearance: none;
+
+  position: relative;
+
+  width: clamp(34px, 4.5vw, 44px);
+  height: clamp(19px, 2.7vw, 24px);
+
+  min-width: clamp(34px, 4.5vw, 44px);
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: #dce3ec;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    background .2s ease,
+    box-shadow .2s ease;
+}
+
+.notification-switch::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 3px;
+
+  width: clamp(13px, 2vw, 18px);
+  height: clamp(13px, 2vw, 18px);
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, .15);
+
+  transform: translateY(-50%);
+
+  transition:
+    transform .2s ease;
+}
+
+.notification-switch:hover {
+  box-shadow:
+    0 0 0 3px rgba(13, 110, 253, .07);
+}
+
+.notification-switch:checked {
+  background: var(--blue);
+}
+
+.notification-switch:checked::after {
+  transform:
+    translate(
+      calc(clamp(34px, 4.5vw, 44px) - clamp(13px, 2vw, 18px) - 6px),
+      -50%
+    );
+}
+
+.notification-switch:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.notification-switch:focus-visible {
+  box-shadow:
+    0 0 0 3px rgba(13, 110, 253, .16);
+}
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.device-notification-actions {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 12px;
+}
+
+.device-notification-actions .outline-btn {
+  min-height: 36px;
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+#notificationSaveMessage {
+  min-width: 0;
+  color: #1b9b61;
+  font-size: clamp(7px, .9vw, 9px);
+  font-weight: 800;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   ENABLED BUTTON
+   ========================================================= */
+
+#enableDeviceNotifications.notification-enabled-button {
+  background: #1b9b61 !important;
+  border-color: #1b9b61 !important;
+  color: #ffffff !important;
+}
+
+#enableDeviceNotifications.notification-enabled-button:hover {
+  background: #1b9b61 !important;
+  border-color: #1b9b61 !important;
+  transform: none;
+}
+
+#enableDeviceNotifications.notification-enabled-button i {
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .notification-permission-box {
+    grid-template-columns:
+      auto
+      minmax(0, 1fr);
+  }
+
+  .notification-permission-box .primary-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .device-notification-settings
+  .settings-card-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .device-notification-status {
+    align-self: flex-start;
+  }
+
+  .notification-permission-box {
+    grid-template-columns:
+      auto
+      minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .notification-permission-box .primary-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .device-notification-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .device-notification-actions .outline-btn {
+    width: 100%;
+  }
+
+  #notificationSaveMessage {
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .device-notification-settings {
+    margin-top: 12px;
+  }
+
+  .device-notification-settings
+  .settings-card-head h3 {
+    font-size: 14px;
+  }
+
+  .device-notification-settings
+  .settings-card-head p {
+    font-size: 8px;
+  }
+
+  .device-notification-status {
+    min-height: 27px;
+    padding: 6px 9px;
+  }
+
+  .notification-permission-box {
+    padding: 10px;
+    gap: 9px;
+    border-radius: 12px;
+  }
+
+  .permission-icon {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
+  }
+
+  .permission-content strong {
+    font-size: 9px;
+  }
+
+  .permission-content span {
+    font-size: 7px;
+  }
+
+  .notification-setting-row {
+    min-height: 55px;
+    padding: 9px 10px;
+    gap: 8px;
+  }
+
+  .notification-setting-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .notification-setting-text strong {
+    font-size: 8.5px;
+  }
+
+  .notification-setting-text span {
+    font-size: 7px;
+  }
+
+  .notification-switch {
+    width: 36px;
+    min-width: 36px;
+    height: 20px;
+  }
+
+  .notification-switch::after {
+    width: 14px;
+    height: 14px;
+    left: 3px;
+  }
+
+  .notification-switch:checked::after {
+    transform:
+      translate(16px, -50%);
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .device-notification-settings
+  .settings-card-head h3 {
+    font-size: 13px;
+  }
+
+  .notification-permission-box {
+    padding: 9px;
+  }
+
+  .permission-content strong {
+    font-size: 8.5px;
+  }
+
+  .permission-content span {
+    font-size: 7px;
+  }
+
+  .notification-setting-row {
+    min-height: 52px;
+    padding: 8px;
+    gap: 7px;
+  }
+
+  .notification-setting-icon {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    font-size: 10px;
+  }
+
+  .notification-setting-text strong {
+    font-size: 8px;
+  }
+
+  .notification-setting-text span {
+    font-size: 6.5px;
+  }
+
+  .notification-switch {
+    width: 34px;
+    min-width: 34px;
+    height: 19px;
+  }
+
+  .notification-switch::after {
+    width: 13px;
+    height: 13px;
+  }
+
+  .notification-switch:checked::after {
+    transform:
+      translate(15px, -50%);
+  }
+}
+
+/* =========================================================
+   EXTRA-WIDE / LARGE SCREENS
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+  .device-notification-settings {
+    max-width: 100%;
+  }
+
+  .notification-settings-list {
+    max-width: 100%;
+  }
+
+  .notification-setting-row {
+    min-height: 66px;
+  }
+}
+
+/* =========================================================
+   TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .notification-setting-row {
+    min-height: 58px;
+  }
+
+  .notification-switch {
+    min-width: 40px;
+    min-height: 22px;
+  }
+
+  .notification-permission-box .primary-btn,
+  .device-notification-actions .outline-btn {
+    min-height: 40px;
+  }
+}
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+  .notification-permission-box {
+    grid-template-columns:
+      auto
+      minmax(0, 1fr)
+      auto;
+  }
+
+  .notification-permission-box .primary-btn {
+    grid-column: auto;
+    width: auto;
+  }
+
+  .device-notification-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .notification-setting-row,
+  .notification-switch,
+  .notification-switch::after {
+    transition: none;
+  }
+}
