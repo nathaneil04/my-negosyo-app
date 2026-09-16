@@ -95,14 +95,44 @@
     <i class="fa-solid fa-plus"></i>
   </button>
 
-  <button
-    class="icon-btn notification"
-    id="notifBtn"
-    title="Alerts"
-  >
-    <i class="fa-regular fa-bell"></i>
-    <span></span>
-  </button>
+  <div class="notification-wrapper">
+    <!-- Existing notification button preserved -->
+    <button
+      class="icon-btn notification"
+      id="notifBtn"
+      type="button"
+      title="Notifications"
+      aria-label="Notifications"
+      aria-expanded="false"
+    >
+      <i class="fa-regular fa-bell"></i>
+      <span id="notificationBadge" class="notification-badge hidden">0</span>
+    </button>
+
+    <!-- Notification dropdown -->
+    <div class="notification-panel" id="notificationPanel" aria-hidden="true">
+      <div class="notification-head">
+        <div class="notification-title-area">
+          <strong>Notifications</strong>
+          <span id="notificationSubtitle">Stay updated with your negosyo</span>
+        </div>
+
+        <button
+          type="button"
+          class="notification-read"
+          id="markNotificationsRead"
+        >
+          Mark all as read
+        </button>
+      </div>
+
+      <div class="notification-list" id="notificationList"></div>
+
+      <div class="notification-footer">
+        <button type="button" id="viewAllNotifications">View all alerts</button>
+      </div>
+    </div>
+  </div>
 
   <button class="avatar top-avatar">N</button>
 
@@ -157,7 +187,129 @@
         <section class="page" id="page-payroll"><div class="page-head"><div><p class="eyebrow">STAFF</p><h1>Employee Salary</h1><p class="muted">Track staff rates, payouts, and salary history.</p></div><button class="primary-btn" id="addEmployeeBtn"><i class="fa-solid fa-plus"></i> Add Employee</button></div><div class="cards-grid" id="employeesGrid"></div></section>
         <section class="page" id="page-vault"><div class="page-head"><div><p class="eyebrow">CASH MANAGEMENT</p><h1>Cash on Vault</h1><p class="muted">Separate your physical cash from GCash and sales.</p></div><button class="primary-btn" id="vaultEntryBtn"><i class="fa-solid fa-plus"></i> Cash Movement</button></div><div class="wallet-card vault"><div><small>Vault Balance</small><strong>₱18,600.00</strong><span><i class="fa-solid fa-shield"></i> Secure cash tracking</span></div><i class="fa-solid fa-vault wallet-bg"></i></div><div class="panel table-panel"><div class="table-scroll"><table><thead><tr><th>Date</th><th>Type</th><th>Amount</th><th>Notes</th></tr></thead><tbody id="vaultTable"></tbody></table></div></div></section>
         <section class="page" id="page-reports"><div class="page-head"><div><p class="eyebrow">BUSINESS INSIGHTS</p><h1>Reports</h1><p class="muted">Understand sales, stock movement, and cash activity.</p></div><button class="outline-btn" onclick="window.print()"><i class="fa-solid fa-print"></i> Print</button></div><div class="report-cards"><div class="report-card"><i class="fa-solid fa-chart-column"></i><strong>₱58,420</strong><span>Sales this month</span></div><div class="report-card"><i class="fa-solid fa-boxes-stacked"></i><strong>128</strong><span>Units sold</span></div><div class="report-card"><i class="fa-solid fa-user-clock"></i><strong>₱6,720</strong><span>Utang outstanding</span></div><div class="report-card"><i class="fa-solid fa-peso-sign"></i><strong>₱19,250</strong><span>Gross profit</span></div></div><div class="panel"><div class="panel-head"><div><h2>Fast-moving products</h2><p>Last 30 days</p></div></div><div id="reportProducts" class="product-rank"></div></div></section>
-        <section class="page" id="page-settings"><div class="page-head"><div><p class="eyebrow">PREFERENCES</p><h1>Settings</h1><p class="muted">Customize MyNegosyo for your store.</p></div></div><div class="settings-grid"><div class="panel settings-card"><h2>Store details</h2><label>Store name<input id="storeNameInput" value="My Store"></label><label>Owner name<input value="Negosyo Owner"></label><label>Currency<select><option>Philippine Peso (₱)</option></select></label><button class="primary-btn" id="saveSettings">Save settings</button></div><div class="panel settings-card"><h2>Notifications</h2><label class="switch-row"><span>Low-stock alerts</span><input type="checkbox" checked><span class="switch"></span></label><label class="switch-row"><span>Expiry alerts</span><input type="checkbox" checked><span class="switch"></span></label><label class="switch-row"><span>Daily sales summary</span><input type="checkbox" checked><span class="switch"></span></label></div></div></section>
+        <section class="page" id="page-settings">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">PREFERENCES</p>
+              <h1>Settings</h1>
+              <p class="muted">Customize MyNegosyo for your store.</p>
+            </div>
+          </div>
+
+          <!-- Existing settings preserved -->
+          <div class="settings-grid">
+            <div class="panel settings-card">
+              <h2>Store details</h2>
+              <label>Store name<input id="storeNameInput" value="My Store"></label>
+              <label>Owner name<input value="Negosyo Owner"></label>
+              <label>Currency<select><option>Philippine Peso (₱)</option></select></label>
+              <button class="primary-btn" id="saveSettings">Save settings</button>
+            </div>
+
+            <div class="panel settings-card">
+              <h2>Notifications</h2>
+              <label class="switch-row"><span>Low-stock alerts</span><input type="checkbox" checked><span class="switch"></span></label>
+              <label class="switch-row"><span>Expiry alerts</span><input type="checkbox" checked><span class="switch"></span></label>
+              <label class="switch-row"><span>Daily sales summary</span><input type="checkbox" checked><span class="switch"></span></label>
+            </div>
+          </div>
+
+          <!-- NEW: Device Notification Settings -->
+          <section class="panel settings-card device-notification-settings">
+            <div class="settings-card-head">
+              <div>
+                <span class="settings-eyebrow">DEVICE NOTIFICATIONS</span>
+                <h3>Notify me on this device</h3>
+                <p>Get MyNegosyo alerts directly on your phone, tablet, or computer.</p>
+              </div>
+
+              <div class="device-notification-status" id="deviceNotificationStatus">
+                <i class="fa-solid fa-bell"></i>
+                <span>Checking...</span>
+              </div>
+            </div>
+
+            <div class="notification-permission-box" id="notificationPermissionBox">
+              <div class="permission-icon">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+
+              <div class="permission-content">
+                <strong id="notificationPermissionTitle">Device notifications are not enabled</strong>
+                <span id="notificationPermissionText">Allow MyNegosyo to send important business alerts to this device.</span>
+              </div>
+
+              <button type="button" class="primary-btn" id="enableDeviceNotifications">
+                <i class="fa-solid fa-bell"></i>
+                Enable
+              </button>
+            </div>
+
+            <div class="notification-settings-list">
+              <label class="notification-setting-row">
+                <div class="notification-setting-icon red"><i class="fa-solid fa-box-open"></i></div>
+                <div class="notification-setting-text"><strong>Low / Out of Stock</strong><span>Notify me when products need restocking.</span></div>
+                <input type="checkbox" id="notifyLowStock" class="notification-switch">
+              </label>
+
+              <label class="notification-setting-row">
+                <div class="notification-setting-icon yellow"><i class="fa-solid fa-calendar-xmark"></i></div>
+                <div class="notification-setting-text"><strong>Expiring Products</strong><span>Notify me when products are close to expiry.</span></div>
+                <input type="checkbox" id="notifyExpiry" class="notification-switch">
+              </label>
+
+              <label class="notification-setting-row">
+                <div class="notification-setting-icon orange"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                <div class="notification-setting-text"><strong>Utang Due / Overdue</strong><span>Notify me about customers with overdue balances.</span></div>
+                <input type="checkbox" id="notifyUtang" class="notification-switch">
+              </label>
+
+              <label class="notification-setting-row">
+                <div class="notification-setting-icon blue"><i class="fa-solid fa-receipt"></i></div>
+                <div class="notification-setting-text"><strong>Upcoming Bills</strong><span>Notify me about bills that are due soon or overdue.</span></div>
+                <input type="checkbox" id="notifyBills" class="notification-switch">
+              </label>
+
+              <label class="notification-setting-row">
+                <div class="notification-setting-icon green"><i class="fa-solid fa-cart-shopping"></i></div>
+                <div class="notification-setting-text"><strong>New Sales</strong><span>Notify me when a new sale is recorded.</span></div>
+                <input type="checkbox" id="notifySales" class="notification-switch">
+              </label>
+
+              <label class="notification-setting-row">
+                <div class="notification-setting-icon green"><i class="fa-solid fa-wallet"></i></div>
+                <div class="notification-setting-text"><strong>GCash Transactions</strong><span>Notify me about new GCash cash-in and cash-out records.</span></div>
+                <input type="checkbox" id="notifyGcash" class="notification-switch">
+              </label>
+
+              <label class="notification-setting-row">
+                <div class="notification-setting-icon blue"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <div class="notification-setting-text"><strong>E-Load Transactions</strong><span>Notify me when a new E-Load transaction is recorded.</span></div>
+                <input type="checkbox" id="notifyEload" class="notification-switch">
+              </label>
+
+              <label class="notification-setting-row">
+                <div class="notification-setting-icon purple"><i class="fa-solid fa-vault"></i></div>
+                <div class="notification-setting-text"><strong>Cash Vault Activity</strong><span>Notify me about Cash In and Cash Out activity.</span></div>
+                <input type="checkbox" id="notifyVault" class="notification-switch">
+              </label>
+
+              <label class="notification-setting-row">
+                <div class="notification-setting-icon gold"><i class="fa-solid fa-chart-column"></i></div>
+                <div class="notification-setting-text"><strong>Daily Business Summary</strong><span>Receive a daily summary of your negosyo activity.</span></div>
+                <input type="checkbox" id="notifyDailySummary" class="notification-switch">
+              </label>
+            </div>
+
+            <div class="device-notification-actions">
+              <button type="button" class="outline-btn" id="testDeviceNotification">
+                <i class="fa-solid fa-paper-plane"></i>
+                Send Test Notification
+              </button>
+              <span id="notificationSaveMessage"></span>
+            </div>
+          </section>
+        </section>
       </div>
     </main>
   </div>
@@ -175,6 +327,10 @@
   <div class="modal" id="quickModal"><div class="modal-head"><div><p class="eyebrow">QUICK ACTION</p><h2>What would you like to do?</h2></div><button class="icon-btn" data-close="quickModal"><i class="fa-solid fa-xmark"></i></button></div><div class="quick-modal-grid"><button data-page-link="inventory" data-close="quickModal"><i class="fa-solid fa-box"></i><span>Add product</span></button><button data-page-link="sales" data-close="quickModal"><i class="fa-solid fa-cart-shopping"></i><span>Record sale</span></button><button data-page-link="utang" data-close="quickModal"><i class="fa-solid fa-hand-holding-dollar"></i><span>Utang entry</span></button><button data-page-link="gcash" data-close="quickModal"><i class="fa-solid fa-wallet"></i><span>GCash entry</span></button></div></div>
   <div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span>Saved</span></div>
   <script src="app.js"></script>
+  <!-- Existing / previously added notification system -->
+  <script src="notification.js"></script>
+  <!-- New device notification settings -->
+  <script src="notification-settings.js"></script>
 
 <script>
 /* =========================================================
@@ -1750,6 +1906,8 @@ updateDashboardDateTime();
 setInterval(updateDashboardDateTime, 1000);
 </script>
 
-
+<script src="app.js"></script>
+<script src="notification.js"></script>
+<script src="notification-settings.js"></script>
 </body>
 </html>
